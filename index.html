@@ -1,0 +1,98 @@
+<html lang="pt-br">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E32NNLF935"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E32NNLF935');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta charset="UTF-8">
+
+  <title>IDEgua - Linguagem Égua</title>
+
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/theme.css">
+  <link rel="shortcut icon" href="./assets/logo_egua.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="container">
+    <div id="left"><select id="demoSelector"></select></div>
+    <!--<div id="middle"><img src="./assets/egua.png" alt="egua" width="100px" height="auto"></div>-->
+    <div id="middle"><button id="startButton" class="recordButton">Iniciar Captura de Fala</button></div>
+    <div id="right"><button id="runBtn">Executar</button></div>
+
+  </div>
+
+  <div id="editor"></div>
+  <div id="output" aria-live="polite"></div>
+
+  <!-- Botão de Captura de Fala -->
+  <div class="container">
+    <!--<h1 class="title">Speech to Text</h1>-->
+    <!--<button id="startButton" class="recordButton">Iniciar Captura de Fala</button>-->
+    <div id="outputText" class="outputText"></div>
+</div>
+
+  <!-- Linguagem Égua em CDN -->
+  <script src="https://unpkg.com/egua/dist/egua.min.js"></script>
+
+  <!-- Framework do editor do código -->
+  <script src="./js/codeflask.min.js"></script>
+
+  <!-- Core da IDE -->
+  <script src="./js/demos.js"></script>
+  <script src="./js/index.js"></script>
+
+  <!-- Manipulação Fala -> Texto -->
+  <script>
+    const startButton = document.getElementById('startButton');
+    const divOutput = document.getElementById('outputText');
+    const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+
+    recognition.interimResults = true;
+    recognition.continuous = false;
+    recognition.lang = "pt-BR";
+
+    startButton.addEventListener('click', () => {
+        recognition.start();
+        divOutput.textContent = '';
+        startButton.disabled = true;
+        startButton.textContent = 'Ouvindo...';
+    });
+
+    recognition.onresult = event => {
+        const result = event.results[event.results.length - 1][0].transcript;
+        divOutput.textContent = result;
+    };
+
+    recognition.onend = () => {
+        console.log(divOutput.textContent);
+        transcription();
+        startButton.disabled = false;
+        startButton.textContent = 'Iniciar Captura de Fala';
+    };
+
+    recognition.onerror = event => {
+        console.error('Erro no reconhecimento de voz:', event.error);
+    };
+
+    recognition.onnomatch = () => {
+        console.log('Nenhuma fala detectada');
+    };
+
+</script>
+
+</body>
+
+</html>
