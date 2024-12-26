@@ -42,7 +42,7 @@
     <!--<h1 class="title">Speech to Text</h1>-->
     <!--<button id="startButton" class="recordButton">Iniciar Captura de Fala</button>-->
     <div id="outputText" class="outputText"></div>
-</div>
+  </div>
 
   <!-- Linguagem Égua em CDN -->
   <script src="https://unpkg.com/egua/dist/egua.min.js"></script>
@@ -56,6 +56,10 @@
 
   <!-- Manipulação Fala -> Texto -->
   <script>
+
+    let mediaRecorder;
+    let audioChunks = [];
+
     const startButton = document.getElementById('startButton');
     const divOutput = document.getElementById('outputText');
     const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
@@ -71,16 +75,38 @@
         startButton.textContent = 'Ouvindo...';
     });
 
+    startButton.onclick = async () => {
+        audioChunks = []; // Reset audio chunks
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+    
+        mediaRecorder.ondataavailable = (event) => {
+            audioChunks.push(event.data);
+        };
+    
+        mediaRecorder.onstop = () => {
+            const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+            sendAudioToServer(audioBlob);
+        };
+    
+        mediaRecorder.start();
+        //startButton.disabled = true;
+        //stopButton.disabled = false;
+    };
+
     recognition.onresult = event => {
         const result = event.results[event.results.length - 1][0].transcript;
         divOutput.textContent = result;
     };
 
     recognition.onend = () => {
-        console.log(divOutput.textContent);
-        transcription();
-        startButton.disabled = false;
-        startButton.textContent = 'Iniciar Captura de Fala';
+      if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+          console.log(divOutput.textContent);
+          transcription();
+          mediaRecorder.stop();
+          startButton.disabled = false;
+          startButton.textContent = 'Iniciar Captura de Fala';
+      }
     };
 
     recognition.onerror = event => {
@@ -90,6 +116,55 @@
     recognition.onnomatch = () => {
         console.log('Nenhuma fala detectada');
     };
+
+    function formatText(text) {
+        const segments = text.split(/(?<=[.!?])\s+/);
+        let formattedText = '';
+        let currentLine = '';
+    
+        segments.forEach(segment => {
+            if (currentLine.length + segment.length > 100) {  // Adjust 100 to your preferred line length
+                formattedText += currentLine.trim() + '\n';
+                currentLine = '';
+            }
+            currentLine += segment + ' ';
+                
+            if (/[.!?]$/.test(segment)) {
+                formattedText += currentLine.trim() + '\n';
+                currentLine = '';
+            }
+        });
+    
+        if (currentLine) {
+            formattedText += currentLine.trim();
+        }
+    
+        return formattedText.trim();
+    }
+
+    function sendAudioToServer(audioBlob) {
+        const formData = new FormData();
+        formData.append('audio', audioBlob, 'recording.wav');
+    
+        fetch('transcribe.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(text => {
+            const formattedText = formatText(text);
+            divOutput.textContent = formattedText;
+            //copyButton.disabled = false;
+            //clearButton.disabled = false;
+            //status.textContent = 'Transcription complete!';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            //output.textContent = 'Error occurred during transcription.';
+            //status.textContent = 'An error occurred.';
+            //clearButton.disabled = false;
+        });
+    }
 
 </script>
 
