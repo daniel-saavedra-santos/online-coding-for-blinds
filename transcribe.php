@@ -1,5 +1,5 @@
 <?php
-// Your OpenAI API Key
+
 $api_key = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['audio'])) {
