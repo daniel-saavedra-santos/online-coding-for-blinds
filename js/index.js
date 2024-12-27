@@ -21,8 +21,8 @@ function transcription(){
   for (let i=0; i < sessionStorage.length; i++){
       key.push(sessionStorage.key(i));
   }
-  const index = key.indexOf('IsThisFirstTime_Log_From_LiveServer');
-  key.splice(index, 1);
+  //const index = key.indexOf('IsThisFirstTime_Log_From_LiveServer');
+  //key.splice(index, 1);
   key = key.sort((a, b) => a - b);
   for (let i=0; i < key.length; i++){
       if(sessionStorage.getItem(key[i]) != 'true'){
@@ -30,8 +30,8 @@ function transcription(){
       }
   }
   //box.replace(/\n+/g, '\n');
-  console.log(key);
-  console.log(box);
+  //console.log(key);
+  //console.log(box);
   editor.updateCode(box);
 }
 

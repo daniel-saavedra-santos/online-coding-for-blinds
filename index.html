@@ -31,7 +31,6 @@
     <!--<div id="middle"><img src="./assets/egua.png" alt="egua" width="100px" height="auto"></div>-->
     <div id="middle"><button id="startButton" class="recordButton">Iniciar Captura de Fala</button></div>
     <div id="right"><button id="runBtn">Executar</button></div>
-
   </div>
 
   <div id="editor"></div>
@@ -100,13 +99,14 @@
     };
 
     recognition.onend = () => {
-      if (mediaRecorder && mediaRecorder.state !== 'inactive') {
-          console.log(divOutput.textContent);
-          transcription();
-          mediaRecorder.stop();
-          startButton.disabled = false;
-          startButton.textContent = 'Iniciar Captura de Fala';
-      }
+        //console.log(divOutput.textContent);
+        transcription();
+        startButton.disabled = false;
+        startButton.textContent = 'Iniciar Captura de Fala';
+
+        if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+            mediaRecorder.stop();
+        }
     };
 
     recognition.onerror = event => {
@@ -153,7 +153,8 @@
         .then(response => response.text())
         .then(text => {
             const formattedText = formatText(text);
-            divOutput.textContent = formattedText;
+            console.log('ChatGPT: ' + formattedText);
+            //divOutput.textContent = formattedText;
             //copyButton.disabled = false;
             //clearButton.disabled = false;
             //status.textContent = 'Transcription complete!';
