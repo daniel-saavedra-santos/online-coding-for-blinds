@@ -1,6 +1,6 @@
 <?php
 // Your OpenAI API Key
-$api_key = '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';
+$api_key = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['audio'])) {
     $audio_file = $_FILES['audio']['tmp_name'];
