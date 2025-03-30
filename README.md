@@ -11,10 +11,14 @@
 </div>
 
 ## Requisitos
-- Python 3.9.21
-- Torchtext 0.10.0
-- Numpy 1.26.4
-- PHP (versão mais recente)
+<div align="left">
+    <ul>
+        <li><a href="https://www.python.org/downloads/release/python-3921/">Python 3.9.21</a></li>
+        <li><a href="https://download.pytorch.org/whl/torchtext/">torchtext-0.10.0-cp39-cp39</a></li>
+        <li><a href="https://pypi.org/project/numpy/1.26.4/">Numpy 1.26.4</a></li>
+        <li><a href="https://www.php.net/downloads.php">PHP (versão mais recente)</a></li>
+    </ul>
+</div>
 
 Se estiver usando apenas a CPU ao invés de placas NVIDIA:
 ``` sh
@@ -23,8 +27,13 @@ pip install torch==1.9.0+cpu torchvision==0.10.0+cpu torchaudio==0.9.0 -f https:
 ```
 
 Para executar:
-- Abra o projeto no VSCode
-- Em dois terminais separados, digite
+- Abra o projeto no VSCode;
+- Abra dois terminais separados;
+- No primeiro, digite:
+``` sh
 python ./app.py
-- No outro
+```
+- No outro, digite:
+``` sh
 php -S localhost:8080
+```
