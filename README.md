@@ -4,13 +4,11 @@
     </h1>
     <p>
     Implementação oficial da extensão da <a href="https://egua.dev/" target="_blank">IDE Égua</a><br>
-    para suporte de codificação a deficientes visuais. Utiliza reconhecimento de voz<br>
-    e Processamento de Linguagem Natural (PLN)
+    voltado ao ensino de lógica de programação para deficientes visuais.<br>
+    Utiliza reconhecimento de voz e Processamento de Linguagem Natural (PLN).
     </p>
     <p></p>
 </div>
-Projeto de aplicação web voltado ao ensino de algoritmos para deficientes visuais.
-
 
 ## Requisitos
 - Python 3.9.21
