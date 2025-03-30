@@ -1,6 +1,6 @@
 <?php
 
-$api_key = '';
+$api_key = 'PUT YOUR API KEY HERE';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['audio'])) {
     $audio_file = $_FILES['audio']['tmp_name'];

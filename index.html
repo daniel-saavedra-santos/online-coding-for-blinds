@@ -56,6 +56,44 @@
   <!-- Manipulação Fala -> Texto -->
   <script>
 
+    var xhr = null;
+
+    getXmlHttpRequestObject = function () {
+        if (!xhr) {
+            // Create a new XMLHttpRequest object 
+            xhr = new XMLHttpRequest();
+        }
+        return xhr;
+    };
+
+    function sendDataCallback() {
+        // Check response is ready or not
+        if (xhr.readyState == 4 && xhr.status == 201) {
+            console.log(xhr.responseText);
+            // getDate();
+            // dataDiv = document.getElementById('sent-data-container');
+            // Set current data text
+            editor.updateCode(xhr.responseText + '\n');
+        }
+    }
+	
+	function sendData(str) {
+        dataToSend = str;
+        if (!dataToSend) {
+            console.log("Data is empty.");
+            return;
+        }
+        console.log("Sending data: " + dataToSend);
+        xhr = getXmlHttpRequestObject();
+        xhr.onreadystatechange = sendDataCallback;
+        // asynchronous requests
+        xhr.open("POST", "http://localhost:6969/", true);
+        xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+        // Send the request over the network
+        xhr.send(dataToSend);
+    }
+	
+
     let mediaRecorder;
     let audioChunks = [];
 
@@ -101,6 +139,7 @@
     recognition.onend = () => {
         //console.log(divOutput.textContent);
         transcription();
+        //sendData();
         startButton.disabled = false;
         startButton.textContent = 'Iniciar Captura de Fala';
 
@@ -153,6 +192,7 @@
         .then(response => response.text())
         .then(text => {
             const formattedText = formatText(text);
+            sendData(formattedText);
             console.log('ChatGPT: ' + formattedText);
             //divOutput.textContent = formattedText;
             //copyButton.disabled = false;
