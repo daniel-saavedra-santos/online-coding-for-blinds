@@ -27,6 +27,18 @@ html, body, button, select {
     margin-left: 10px;
 }
 
+#seletor-voz {
+    background-color: #e95500;
+    color: white;
+    border: 2px;
+    margin-bottom: 3px;
+    display: inline-block;
+    border-radius: 9999px;
+    padding: 15px 20px;
+    border-right: 7px solid transparent;
+    margin-left: 10px;
+}
+
 #editor {
     width: 65%;
     height: calc(100% - 65px);
@@ -61,6 +73,11 @@ html, body, button, select {
     }
 
     #demoSelector {
+        width: 108px;
+        font-size: 11px;
+    }
+
+    #seletor-voz {
         width: 108px;
         font-size: 11px;
     }

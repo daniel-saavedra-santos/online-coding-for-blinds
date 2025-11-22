@@ -1,0 +1,39 @@
+# --- Arquivos de Configuração e Senhas (CRÍTICO) ---
+.env
+.env.local
+config.php
+
+# --- Python (Flask/Django) ---
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+env/
+
+# --- JavaScript / Node.js ---
+node_modules/
+dist/
+build/
+
+# --- Logs e Erros ---
+*.log
+npm-debug.log*
+
+# --- Arquivos de Sistema Operacional (Lixo) ---
+.DS_Store
+Thumbs.db
+
+# --- JavaScript (Node) ---
+node_modules/
+# MANTÉM: package.json
+# MANTÉM: package-lock.json
+
+# --- PHP (Composer) ---
+vendor/
+# MANTÉM: composer.json
+# MANTÉM: composer.lock
+
+# --- Python ---
+venv/
+__pycache__/
+# MANTÉM: requirements.txt

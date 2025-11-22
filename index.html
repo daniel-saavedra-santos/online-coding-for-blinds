@@ -3,9 +3,11 @@
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E32NNLF935"></script>
+  <!--<script src="https://cdn.tailwindcss.com"></script>-->
+  <script src="./js/words-to-numbers.min.js"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-E32NNLF935');
@@ -23,14 +25,465 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
+
+  <style>
+    /* Container geral para alinhar os controles lado a lado */
+    .audio-controls {
+      display: flex;
+      gap: 15px;
+      /* Espaço entre os dois controles */
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f0f0;
+      /* Cor de fundo opcional */
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .control-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      /* Espaço entre o texto 'Vel:' e o slider */
+    }
+
+    /* Estilo do Texto (Label) */
+    .control-label {
+      font-size: 14px;
+      font-weight: bold;
+      color: #333;
+      /* Cor do texto */
+    }
+
+    /* === Estilização do Slider (Input Range) === */
+    .styled-slider {
+      -webkit-appearance: none;
+      /* Remove o estilo padrão do navegador */
+      width: 80px;
+      /* Largura do slider */
+      height: 6px;
+      /* Altura do trilho */
+      background: #ddd;
+      /* Cor do trilho (fundo da barra) */
+      border-radius: 5px;
+      outline: none;
+      /* Remove a borda azul de seleção */
+      opacity: 0.9;
+      transition: opacity .2s;
+    }
+
+    .styled-slider:hover {
+      opacity: 1;
+    }
+
+    /* --- A "Bolinha" (Thumb) - Chrome, Safari, Opera, Edge --- */
+    .styled-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      /* Largura da bolinha */
+      height: 16px;
+      /* Altura da bolinha */
+      background: #4CAF50;
+      /* COR DA BOLINHA (Mude aqui) */
+      border-radius: 50%;
+      /* Deixa redondo */
+      cursor: pointer;
+      border: 2px solid #fff;
+      /* Borda branca ao redor da bolinha */
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+      /* Sombra suave */
+    }
+
+    /* --- A "Bolinha" (Thumb) - Firefox --- */
+    .styled-slider::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      background: #4CAF50;
+      /* COR DA BOLINHA (Mude aqui) */
+      border: 2px solid #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    }
+
+    /* --- O Trilho (Track) - Firefox (O Chrome usa o background do input direto) --- */
+    .styled-slider::-moz-range-progress {
+      background-color: #4CAF50;
+    }
+
+    /* Texto explicativo padrão */
+    .resposta-texto {
+      color: #003366;
+      /* Azul escuro (bom contraste) */
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    /* Bloco de código */
+    .resposta-codigo {
+      background-color: #f4f4f4;
+      border-left: 4px solid #003366;
+      padding: 10px;
+      margin: 10px 0;
+      font-family: 'Courier New', monospace;
+      color: #333;
+      white-space: pre-wrap;
+      /* Mantém as quebras de linha */
+      display: block;
+      border-radius: 4px;
+    }
+
+    /* Classe para esconder texto visualmente, mas manter para o leitor de tela */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    /* Pop-up de Boas-Vindas */
+
+    /* 1. O OVERLAY: fundo escurecido e que bloqueia cliques */
+    #modal-overlay {
+      position: fixed;
+      /* Fica fixo na tela mesmo com rolagem */
+      top: 0;
+      left: 0;
+      width: 100vw;
+      /* 100% da largura da tela */
+      height: 100vh;
+      /* 100% da altura da tela */
+      background-color: rgba(0, 0, 0, 0.7);
+      /* Fundo preto com 70% de opacidade */
+      z-index: 5000;
+      /* Garante que fique acima de todo o conteúdo */
+      display: flex;
+      /* Usado para centralizar o modal */
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* 2. O MODAL: a janela pop-up */
+    #modal-container {
+      background-color: white;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+      z-index: 1001;
+      /* Acima do overlay */
+    }
+
+    #modal-container h2 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    #modal-container p {
+      color: #666;
+    }
+
+    #modal-container button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    #modal-container button:hover,
+    #modal-container button:focus {
+      /* Estilo para quando o botão está focado (acessibilidade) */
+      background-color: #0056b3;
+      outline: 2px solid #0056b3;
+      outline-offset: 2px;
+    }
+
+    /* 3. CLASSE PARA ESCONDER: usada pelo JavaScript para esconder o modal */
+    .hidden {
+      display: none !important;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal.show {
+      display: block;
+      opacity: 1;
+    }
+
+    .modal-content {
+      background: #fff;
+      margin: 10% auto;
+      padding: 25px 30px;
+      width: 400px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transform: translateY(-20px);
+      transition: transform 0.3s ease;
+    }
+
+    .modal.show .modal-content {
+      transform: translateY(0);
+    }
+
+    .close {
+      align-self: flex-end;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .config-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    .config-group label {
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    select {
+      padding: 8px 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    #saveConfig {
+      padding: 12px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    #saveConfig:hover {
+      background: #45a049;
+      transform: scale(1.05);
+    }
+
+    /* Toast */
+    #toast {
+      visibility: hidden;
+      min-width: 200px;
+      background: #333;
+      color: white;
+      text-align: center;
+      border-radius: 6px;
+      padding: 10px;
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      z-index: 3000;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    #toast.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .config-group small {
+      color: #555;
+      font-style: italic;
+      margin-top: 3px;
+      display: block;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      margin: 0;
+      padding-top: 80px;
+      /* espaço para a barra fixa */
+    }
+
+    /* Barra de ferramentas fixa no topo */
+    #toolbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      /* mesma altura */
+      gap: 15px;
+      /* espaçamento entre os elementos */
+      padding: 10px 20px;
+      background: #ffffff;
+      border-bottom: 2px solid #ccc;
+      z-index: 1000;
+      /* sobrepõe o conteúdo */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      flex-wrap: wrap;
+      /* quebra linha se necessário */
+    }
+
+    /* Botões padrão */
+    #print,
+    #var,
+    #op,
+    #cond,
+    #runBtn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    #print {
+      background: #9642a7;
+    }
+
+    #var {
+      background: #4CAF50;
+    }
+
+    #op {
+      background: #061996;
+    }
+
+    #cond {
+      background: #891503;
+    }
+
+    #runBtn {
+      background: #333;
+    }
+
+    #print:hover,
+    #var:hover,
+    #op:hover,
+    #cond:hover,
+    #runBtn:hover {
+      transform: scale(1.05);
+    }
+
+    /* Botões circulares */
+    .recordButton,
+    .config-btn {
+      font-size: 2rem;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid black;
+      background: white;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .recordButton:hover {
+      transform: scale(1.2);
+      background: #f0f0f0;
+    }
+
+    .config-btn:hover {
+      transform: rotate(90deg);
+      background: #f5f5f5;
+    }
+
+    /* Select estilizado */
+    #demoSelector {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    #seletor-voz {
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
 </head>
 
 <body>
-  <div id="container">
-    <div id="left"><select id="demoSelector"></select></div>
-    <!--<div id="middle"><img src="./assets/egua.png" alt="egua" width="100px" height="auto"></div>-->
-    <div id="middle"><button id="startButton" class="recordButton">Iniciar Captura de Fala</button></div>
-    <div id="right"><button id="runBtn">Executar</button></div>
+
+  <div id="modal-overlay">
+    <div id="modal-container">
+      <h2 id="welcome">Bem-vind@ ao Égua Assist!</h2>
+      <p>Este site possui um assistente de voz para guiá-lo. Clique no botão abaixo ou pressione ENTER para iniciar a
+        narração de boas-vindas.</p>
+      <button id="iniciar-assistente">Iniciar Experiência</button>
+    </div>
+  </div>
+
+  <div id="toolbar">
+    <button id="print" onclick="escrever()">Escrever no console</button>
+    <button id="var" onclick="criarVariavel()">Criar variável</button>
+    <button id="op" onclick="operacao()">Operação</button>
+    <button id="cond" onclick="condicional()">Condicional</button>
+    <button id="runBtn">Executar</button>
+    <button class="recordButton" id="startButton" aria-label="Ativar microfone">🎤</button>
+    <button id="openConfig" class="config-btn" aria-label="Configurações">⚙️</button>
+    <select id="demoSelector"></select>
+
+    <hr style="height: 25px; border-left: 1px solid #ccc; margin: 0 10px;">
+
+    <select id="seletor-voz" title="Selecionar Voz" style="max-width: 140px; padding: 5px;"></select>
+
+    <!--
+    <span style="white-space: nowrap; font-size: 14px;">
+        <label for="slider-velocidade" title="Velocidade de Leitura">Vel:</label>
+        <input type="range" id="slider-velocidade" min="0.5" max="2" value="1.1" step="0.1" style="width: 70px;">
+    </span>
+    
+    <span style="white-space: nowrap; font-size: 14px;">
+        <label for="slider-tom" title="Tom da Voz">Tom:</label>
+        <input type="range" id="slider-tom" min="0" max="2" value="1.0" step="0.1" style="width: 70px;">
+    </span>
+    -->
+
+    <div class="audio-controls">
+      <div class="control-item">
+        <label for="slider-velocidade" class="control-label">Vel:</label>
+        <input type="range" id="slider-velocidade" class="styled-slider" min="0.5" max="2" value="1.1" step="0.1">
+      </div>
+
+      <div class="control-item">
+        <label for="slider-tom" class="control-label">Tom:</label>
+        <input type="range" id="slider-tom" class="styled-slider" min="0" max="2" value="1.0" step="0.1">
+      </div>
+    </div>
+
+    <hr style="height: 25px; border-left: 1px solid #ccc; margin: 0 10px;">
   </div>
 
   <div id="editor"></div>
@@ -38,13 +491,87 @@
 
   <!-- Botão de Captura de Fala -->
   <div class="container">
-    <!--<h1 class="title">Speech to Text</h1>-->
-    <!--<button id="startButton" class="recordButton">Iniciar Captura de Fala</button>-->
     <div id="outputText" class="outputText"></div>
   </div>
 
+  <div id="configModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Configurações</h2>
+
+      <div class="config-group">
+        <label for="transcriptionModel">🗣 Modelo de Transcrição:</label>
+        <select id="transcriptionModel">
+          <option value="whisper-local">Whisper (local)</option>
+          <option value="whisper-api">Whisper (API)</option>
+          <option value="gemini-speech">Gemini Speech</option>
+          <option value="web-speech-api">Web Speech API</option>
+
+        </select>
+        <small id="previewTranscription">Atualmente: Whisper (local)</small>
+      </div>
+
+      <div class="config-group">
+        <label for="translationModel">💻 Modelo de Tradução Fala → Código:</label>
+        <select id="translationModel">
+          <option value="gemini-latest">gemini-1.5-flash-latest</option>
+          <option value="gpt-4o">gpt-4o-mini</option>
+          <option value="transformer">transformer-19.5M</option>
+          <option value="phi-2">Phi-2</option>
+          <option value="llama-3">Llama 3.2 1B Instruct</option>
+          <option value="qwen2">Qwen2-1.5B-Instruct</option>
+        </select>
+        <small id="previewTranslation">Atualmente: gemini-1.5-flash-latest</small>
+      </div>
+
+      <div class="config-group">
+        <label for="assistantModel">🤖 Modelo do Assistente:</label>
+        <select id="assistantModel">
+          <option value="gemini-latest">gemini-2.0-flash-latest</option>
+          <option value="gpt-4o">gpt-4o-mini</option>
+          <option value="phi-2">Phi-2</option>
+          <option value="llama-3">Llama 3.2 1B Instruct</option>
+          <option value="qwen2">Qwen2-1.5B-Instruct</option>
+        </select>
+        <small id="previewAssistant">Atualmente: gemini-2.0-flash-latest</small>
+      </div>
+
+      <div class="config-group">
+        <label for="constructorModel">⚙️ Modelo do Construtor:</label>
+        <select id="constructorModel">
+          <option value="gemini-latest">gemini-1.5-flash-latest</option>
+          <option value="gpt-4o">gpt-4o-mini</option>
+          <option value="phi-2">Phi-2</option>
+          <option value="llama-3">Llama 3.2 1B Instruct</option>
+          <option value="qwen2">Qwen2-1.5B-Instruct</option>
+        </select>
+        <small id="previewConstructor">Atualmente: gemini-1.5-flash-latest</small>
+      </div>
+
+      <button id="saveConfig">Salvar</button>
+    </div>
+  </div>
+
+  <!-- Toast de feedback -->
+  <div id="toast">Configurações salvas!</div>
+
+  <script>
+    const micBtn = document.getElementById("startButton");
+
+    micBtn.addEventListener("click", () => {
+      if (micBtn.textContent === "🎤") {
+        micBtn.textContent = "🔇"; // muda para desligado
+        micBtn.setAttribute("aria-label", "Desativar microfone");
+      } else {
+        micBtn.textContent = "🎤"; // volta para ligado
+        micBtn.setAttribute("aria-label", "Ativar microfone");
+      }
+    });
+  </script>
+
   <!-- Linguagem Égua em CDN -->
-  <script src="https://unpkg.com/egua/dist/egua.min.js"></script>
+  <script src="./js/egua/egua.min.js"></script>
+  <!--<script src="https://unpkg.com/egua/dist/egua.min.js"></script>-->
 
   <!-- Framework do editor do código -->
   <script src="./js/codeflask.min.js"></script>
@@ -53,161 +580,119 @@
   <script src="./js/demos.js"></script>
   <script src="./js/index.js"></script>
 
+  <!-- Configurações de modelos de linguagem -->
+  <script src="./js/config.js"></script>
+
+  <!-- Construtor de Código -->
+  <script src="./js/constructor.js"></script>
+  <script src="./js/translate-models.js"></script>
+
+  <!-- Assistente -->
+  <script src="./js/explain-code.js"></script>
+
+  <!-- Speak Assist -->
+  <script src="./js/assist.js"></script>
+
   <!-- Manipulação Fala -> Texto -->
   <script>
 
-    var xhr = null;
-
-    getXmlHttpRequestObject = function () {
-        if (!xhr) {
-            // Create a new XMLHttpRequest object 
-            xhr = new XMLHttpRequest();
-        }
-        return xhr;
-    };
-
-    function sendDataCallback() {
-        // Check response is ready or not
-        if (xhr.readyState == 4 && xhr.status == 201) {
-            console.log(xhr.responseText);
-            // getDate();
-            // dataDiv = document.getElementById('sent-data-container');
-            // Set current data text
-            editor.updateCode(xhr.responseText + '\n');
-        }
-    }
-	
-	function sendData(str) {
-        dataToSend = str;
-        if (!dataToSend) {
-            console.log("Data is empty.");
-            return;
-        }
-        console.log("Sending data: " + dataToSend);
-        xhr = getXmlHttpRequestObject();
-        xhr.onreadystatechange = sendDataCallback;
-        // asynchronous requests
-        xhr.open("POST", "http://localhost:6969/", true);
-        xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
-        // Send the request over the network
-        xhr.send(dataToSend);
-    }
-	
-
-    let mediaRecorder;
-    let audioChunks = [];
-
-    const startButton = document.getElementById('startButton');
-    const divOutput = document.getElementById('outputText');
-    const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
-
-    recognition.interimResults = true;
-    recognition.continuous = false;
-    recognition.lang = "pt-BR";
-
-    startButton.addEventListener('click', () => {
-        recognition.start();
-        divOutput.textContent = '';
-        startButton.disabled = true;
-        startButton.textContent = 'Ouvindo...';
+    // Limpa o sessionStorage ao fechar a aba
+    window.addEventListener('beforeunload', () => {
+      sessionStorage.clear();
     });
 
-    startButton.onclick = async () => {
-        audioChunks = []; // Reset audio chunks
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        mediaRecorder = new MediaRecorder(stream);
-    
-        mediaRecorder.ondataavailable = (event) => {
+    let recognition;
+    let mediaRecorder;
+    let audioChunks = [];
+    let isRecording = false; // controla o estado
+
+    const divOutput = document.getElementById("outputText");
+    const btnStart = document.getElementById("startButton");
+
+    // --- função para gerar bip ---
+    function beep(frequency = 440, duration = 150) {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = ctx.createOscillator();
+      const gainNode = ctx.createGain();
+
+      oscillator.connect(gainNode);
+      gainNode.connect(ctx.destination);
+
+      oscillator.type = "sine";
+      oscillator.frequency.value = frequency;
+      oscillator.start();
+
+      gainNode.gain.setValueAtTime(0.1, ctx.currentTime); // volume baixo
+      oscillator.stop(ctx.currentTime + duration / 1000);
+    }
+
+    btnStart.onclick = async () => {
+      const engine = getTranscriptionModel();
+
+      if (!isRecording) {
+        // ---------- INICIAR ----------
+        isRecording = true;
+        btnStart.textContent = "⏹️";
+        beep(660, 200); // bip de início
+
+        if (engine === "web-speech-api") {
+          recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+          recognition.interimResults = true;
+          recognition.lang = "pt-BR";
+
+          recognition.onresult = (event) => {
+            const lastResult = event.results[event.results.length - 1];
+            if (!lastResult) return;
+
+            const result = lastResult[0]?.transcript;
+            if (!result) return;
+
+            divOutput.textContent = "🖥️ Navegador: " + result;
+
+            // Envia apenas o resultado final
+            if (lastResult.isFinal) {
+              const formattedText = formatText(result);
+              sendData(formattedText); // envia só uma vez
+            }
+          };
+
+          recognition.onerror = (event) => console.error("Erro:", event.error);
+          recognition.start();
+
+        } else {
+          audioChunks = [];
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          mediaRecorder = new MediaRecorder(stream);
+
+          mediaRecorder.ondataavailable = (event) => {
             audioChunks.push(event.data);
-        };
-    
-        mediaRecorder.onstop = () => {
-            const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
-            sendAudioToServer(audioBlob);
-        };
-    
-        mediaRecorder.start();
-        //startButton.disabled = true;
-        //stopButton.disabled = false;
-    };
+          };
 
-    recognition.onresult = event => {
-        const result = event.results[event.results.length - 1][0].transcript;
-        divOutput.textContent = result;
-    };
+          mediaRecorder.start();
+        }
 
-    recognition.onend = () => {
-        //console.log(divOutput.textContent);
-        transcription();
-        //sendData();
-        startButton.disabled = false;
-        startButton.textContent = 'Iniciar Captura de Fala';
+      } else {
+        // ---------- PARAR ----------
+        isRecording = false;
+        btnStart.textContent = "🎤";
+        beep(440, 200); // bip de parada
 
-        if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+        if (engine === "web-speech-api") {
+          if (recognition) recognition.stop();
+
+        } else {
+          if (mediaRecorder && mediaRecorder.state !== "inactive") {
             mediaRecorder.stop();
+            mediaRecorder.onstop = () => {
+              const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
+              sendAudioToServer(audioBlob, engine);
+            };
+          }
         }
+      }
     };
 
-    recognition.onerror = event => {
-        console.error('Erro no reconhecimento de voz:', event.error);
-    };
-
-    recognition.onnomatch = () => {
-        console.log('Nenhuma fala detectada');
-    };
-
-    function formatText(text) {
-        const segments = text.split(/(?<=[.!?])\s+/);
-        let formattedText = '';
-        let currentLine = '';
-    
-        segments.forEach(segment => {
-            if (currentLine.length + segment.length > 100) {  // Adjust 100 to your preferred line length
-                formattedText += currentLine.trim() + '\n';
-                currentLine = '';
-            }
-            currentLine += segment + ' ';
-                
-            if (/[.!?]$/.test(segment)) {
-                formattedText += currentLine.trim() + '\n';
-                currentLine = '';
-            }
-        });
-    
-        if (currentLine) {
-            formattedText += currentLine.trim();
-        }
-    
-        return formattedText.trim();
-    }
-
-    function sendAudioToServer(audioBlob) {
-        const formData = new FormData();
-        formData.append('audio', audioBlob, 'recording.wav');
-    
-        fetch('transcribe.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.text())
-        .then(text => {
-            const formattedText = formatText(text);
-            sendData(formattedText);
-            console.log('ChatGPT: ' + formattedText);
-            //divOutput.textContent = formattedText;
-            //copyButton.disabled = false;
-            //clearButton.disabled = false;
-            //status.textContent = 'Transcription complete!';
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            //output.textContent = 'Error occurred during transcription.';
-            //status.textContent = 'An error occurred.';
-            //clearButton.disabled = false;
-        });
-    }
-
-</script>
+  </script>
 
 </body>
 

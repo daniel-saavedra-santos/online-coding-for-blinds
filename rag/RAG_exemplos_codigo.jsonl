@@ -1,0 +1,396 @@
+{"prompt": "Crie uma variável com a idade de um aluno", "codigo": "var idade = 20;"}
+{"prompt": "Defina uma variável com a quantidade de maçãs em uma cesta", "codigo": "var macas = 15;"}
+{"prompt": "Guarde em uma variável o número de dias do mês", "codigo": "var diasMes = 30;"}
+{"prompt": "Crie uma variável para o número de gols em uma partida", "codigo": "var gols = 4;"}
+{"prompt": "Defina uma variável para armazenar a quantidade de filhos em uma família", "codigo": "var filhos = 3;"}
+{"prompt": "Guarde em uma variável o número de cadeiras em uma sala", "codigo": "var cadeiras = 40;"}
+{"prompt": "Crie uma variável com o ano de nascimento de uma pessoa", "codigo": "var nascimento = 1998;"}
+{"prompt": "Defina uma variável para o número de habitantes de uma cidade pequena", "codigo": "var habitantes = 8500;"}
+{"prompt": "Guarde em uma variável a quantidade de garrafas em uma caixa", "codigo": "var garrafas = 12;"}
+{"prompt": "Crie uma variável para o número de semanas em um ano", "codigo": "var semanasAno = 52;"}
+{"prompt": "Defina uma variável para armazenar o número de etapas de um processo", "codigo": "var etapas = 7;"}
+{"prompt": "Guarde em uma variável a quantidade de minutos de uma aula", "codigo": "var minutos = 50;"}
+{"prompt": "Crie uma variável com o número de prateleiras de uma estante", "codigo": "var prateleiras = 6;"}
+{"prompt": "Defina uma variável com a idade mínima para votar", "codigo": "var idadeMinima = 16;"}
+{"prompt": "Guarde em uma variável o número de passageiros em um voo", "codigo": "var passageiros = 180;"}
+{"prompt": "Crie uma variável para a quantidade de gols em um campeonato", "codigo": "var golsCampeonato = 125;"}
+{"prompt": "Defina uma variável para armazenar o número de meses de um ano", "codigo": "var mesesAno = 12;"}
+{"prompt": "Guarde em uma variável o total de páginas de um livro", "codigo": "var paginas = 320;"}
+{"prompt": "Crie uma variável para o número de vagas em um concurso", "codigo": "var vagas = 25;"}
+{"prompt": "Defina uma variável com a quantidade de professores em uma escola", "codigo": "var professores = 42;"}
+{"prompt": "Guarde em uma variável o número de degraus de uma escada", "codigo": "var degraus = 18;"}
+{"prompt": "Crie uma variável para indicar a idade de um cachorro", "codigo": "var idadeCachorro = 7;"}
+{"prompt": "Defina uma variável com o número de mesas em um restaurante", "codigo": "var mesas = 28;"}
+{"prompt": "Guarde em uma variável a quantidade de casas em uma rua", "codigo": "var casas = 45;"}
+{"prompt": "Crie uma variável para o número de dias de férias", "codigo": "var ferias = 15;"}
+{"prompt": "Crie uma variável para armazenar a altura de uma pessoa", "codigo": "var altura = 1.75;"}
+{"prompt": "Defina uma variável com o preço de uma pizza", "codigo": "var precoPizza = 39.9;"}
+{"prompt": "Guarde em uma variável a velocidade média de um carro", "codigo": "var velocidade = 82.4;"}
+{"prompt": "Crie uma variável para registrar a temperatura atual", "codigo": "var temperatura = 28.6;"}
+{"prompt": "Defina uma variável para o valor da conta de luz", "codigo": "var contaLuz = 245.78;"}
+{"prompt": "Guarde em uma variável a distância entre duas cidades", "codigo": "var distancia = 350.5;"}
+{"prompt": "Crie uma variável para o saldo de uma conta bancária", "codigo": "var saldo = 1532.67;"}
+{"prompt": "Defina uma variável com o peso de uma criança", "codigo": "var peso = 23.4;"}
+{"prompt": "Guarde em uma variável o preço do litro da gasolina", "codigo": "var gasolina = 5.79;"}
+{"prompt": "Crie uma variável para a altura de um prédio", "codigo": "var predio = 48.6;"}
+{"prompt": "Defina uma variável para o preço de um celular", "codigo": "var celular = 1899.99;"}
+{"prompt": "Guarde em uma variável a largura de um terreno", "codigo": "var largura = 12.8;"}
+{"prompt": "Crie uma variável com o valor de um ingresso de cinema", "codigo": "var ingresso = 22.5;"}
+{"prompt": "Defina uma variável para a área de um apartamento", "codigo": "var area = 75.3;"}
+{"prompt": "Guarde em uma variável o preço de uma passagem aérea", "codigo": "var passagem = 1240.75;"}
+{"prompt": "Crie uma variável para a profundidade de uma piscina", "codigo": "var piscina = 2.3;"}
+{"prompt": "Defina uma variável com o tempo médio de uma corrida", "codigo": "var corrida = 48.6;"}
+{"prompt": "Guarde em uma variável o valor de uma mensalidade escolar", "codigo": "var mensalidade = 980.5;"}
+{"prompt": "Crie uma variável para a potência de um motor", "codigo": "var motor = 1.6;"}
+{"prompt": "Defina uma variável para a taxa de câmbio do dólar", "codigo": "var dolar = 5.32;"}
+{"prompt": "Guarde em uma variável o valor de uma diária de hotel", "codigo": "var diaria = 320.0;"}
+{"prompt": "Crie uma variável para o preço de uma bicicleta", "codigo": "var bicicleta = 780.0;"}
+{"prompt": "Defina uma variável para o consumo médio de água", "codigo": "var consumoAgua = 2.7;"}
+{"prompt": "Guarde em uma variável a densidade populacional de uma cidade", "codigo": "var densidade = 1289.3;"}
+{"prompt": "Crie uma variável para a taxa de juros mensal", "codigo": "var juros = 1.25;"}
+{"prompt": "Crie uma variável com o nome de um aluno", "codigo": "var aluno = \"Carla\";"}
+{"prompt": "Defina uma variável para a cidade onde você mora", "codigo": "var cidade = \"Belém\";"}
+{"prompt": "Guarde em uma variável o nome de um livro", "codigo": "var livro = \"Dom Casmurro\";"}
+{"prompt": "Crie uma variável para o nome de uma disciplina escolar", "codigo": "var disciplina = \"Matemática\";"}
+{"prompt": "Defina uma variável para o nome de uma empresa de tecnologia", "codigo": "var empresa = \"OpenAI\";"}
+{"prompt": "Guarde em uma variável o nome de uma música favorita", "codigo": "var musica = \"Imagine\";"}
+{"prompt": "Crie uma variável para o nome de uma capital brasileira", "codigo": "var capital = \"Brasília\";"}
+{"prompt": "Defina uma variável com o nome de um autor famoso", "codigo": "var autor = \"Machado de Assis\";"}
+{"prompt": "Guarde em uma variável o nome de um aplicativo", "codigo": "var aplicativo = \"WhatsApp\";"}
+{"prompt": "Crie uma variável para o nome de um festival de música", "codigo": "var festival = \"Rock in Rio\";"}
+{"prompt": "Defina uma variável para a cor favorita de alguém", "codigo": "var cor = \"Azul\";"}
+{"prompt": "Guarde em uma variável o nome de uma estação do ano", "codigo": "var estacao = \"Inverno\";"}
+{"prompt": "Crie uma variável para o nome de uma série", "codigo": "var serie = \"Dark\";"}
+{"prompt": "Defina uma variável para o nome de uma rua", "codigo": "var rua = \"Avenida Paulista\";"}
+{"prompt": "Guarde em uma variável o nome de um navegador", "codigo": "var navegador = \"Firefox\";"}
+{"prompt": "Crie uma variável para a marca de um carro", "codigo": "var marca = \"Toyota\";"}
+{"prompt": "Defina uma variável para um esporte olímpico", "codigo": "var esporte = \"Natação\";"}
+{"prompt": "Guarde em uma variável o nome de um pintor famoso", "codigo": "var pintor = \"Van Gogh\";"}
+{"prompt": "Crie uma variável com uma única letra", "codigo": "var letra = \"A\";"}
+{"prompt": "Defina uma variável para armazenar um símbolo", "codigo": "var simbolo = \"#\";"}
+{"prompt": "Guarde em uma variável o nome de um personagem de filme", "codigo": "var personagem = \"Harry Potter\";"}
+{"prompt": "Crie uma variável para a sigla de um estado", "codigo": "var estado = \"SP\";"}
+{"prompt": "Defina uma variável com o nome de um cantor", "codigo": "var cantor = \"Caetano Veloso\";"}
+{"prompt": "Guarde em uma variável o nome de um jogo de tabuleiro", "codigo": "var jogo = \"Xadrez\";"}
+{"prompt": "Crie uma variável para o título de um artigo científico", "codigo": "var artigo = \"Machine Learning Applications\";"}
+{"prompt": "Crie uma variável para indicar se uma lâmpada está ligada", "codigo": "var lampadaLigada = verdadeiro;"}
+{"prompt": "Defina uma variável para indicar se o usuário está ativo", "codigo": "var usuarioAtivo = falso;"}
+{"prompt": "Guarde em uma variável se a porta está aberta", "codigo": "var portaAberta = falso;"}
+{"prompt": "Crie uma variável para verificar se a compra foi paga", "codigo": "var compraPaga = verdadeiro;"}
+{"prompt": "Defina uma variável para indicar se o aluno foi aprovado", "codigo": "var aprovado = verdadeiro;"}
+{"prompt": "Guarde em uma variável se o jogo está em andamento", "codigo": "var jogoAtivo = verdadeiro;"}
+{"prompt": "Crie uma variável para indicar se um carro está em movimento", "codigo": "var carroMovendo = falso;"}
+{"prompt": "Defina uma variável para mostrar se a conexão está online", "codigo": "var conexao = verdadeiro;"}
+{"prompt": "Guarde em uma variável se um produto está disponível", "codigo": "var disponivel = falso;"}
+{"prompt": "Crie uma variável para indicar se é feriado", "codigo": "var feriado = verdadeiro;"}
+{"prompt": "Defina uma variável para saber se o cadastro está completo", "codigo": "var cadastroCompleto = falso;"}
+{"prompt": "Guarde em uma variável se um aluno entregou o trabalho", "codigo": "var entregou = verdadeiro;"}
+{"prompt": "Crie uma variável para indicar se a conta foi bloqueada", "codigo": "var bloqueada = falso;"}
+{"prompt": "Defina uma variável para indicar se há promoções ativas", "codigo": "var promocao = verdadeiro;"}
+{"prompt": "Guarde em uma variável se o tempo está chuvoso", "codigo": "var chuvoso = falso;"}
+{"prompt": "Crie um vetor com os dias da semana", "codigo": "var dias = [\"Segunda\", \"Terça\", \"Quarta\", \"Quinta\", \"Sexta\", \"Sábado\", \"Domingo\"];"}
+{"prompt": "Defina um vetor com as notas de um aluno", "codigo": "var notas = [7.5, 8.0, 6.2, 9.1];"}
+{"prompt": "Guarde em um vetor os nomes de três cidades", "codigo": "var cidades = [\"Belém\", \"Manaus\", \"Fortaleza\"];"}
+{"prompt": "Crie um vetor com os números de 1 a 5", "codigo": "var numeros = [1, 2, 3, 4, 5];"}
+{"prompt": "Defina um vetor com as temperaturas da semana", "codigo": "var temperaturas = [30.2, 29.8, 31.0, 32.5, 28.9];"}
+{"prompt": "Guarde em um vetor os nomes de frutas", "codigo": "var frutas = [\"Maçã\", \"Banana\", \"Laranja\"];"}
+{"prompt": "Crie um vetor com valores booleanos", "codigo": "var respostas = [verdadeiro, falso, verdadeiro];"}
+{"prompt": "Defina um vetor com caracteres do alfabeto", "codigo": "var letras = [\"A\", \"B\", \"C\", \"D\"];"}
+{"prompt": "Guarde em uma vetor os preços de produtos", "codigo": "var precos = [12.5, 8.9, 23.0, 5.7];"}
+{"prompt": "Crie um vetor com nomes de times de futebol", "codigo": "var times = [\"Flamengo\", \"Corinthians\", \"São Paulo\"];"}
+{"prompt": "Some o valor de duas idades", "codigo": "20 + 25;"}
+{"prompt": "Armazene a soma do preço de dois produtos", "codigo": "var total = 12.5 + 8.9;"}
+{"prompt": "Subtraia o valor de duas temperaturas", "codigo": "32 - 28;"}
+{"prompt": "Guarde a diferença de gols entre dois times", "codigo": "var diferenca = 5 - 2;"}
+{"prompt": "Multiplique a quantidade de horas por salário-hora", "codigo": "40 * 25;"}
+{"prompt": "Armazene o resultado da multiplicação de dois números", "codigo": "var resultado = 7 * 6;"}
+{"prompt": "Divida a conta entre quatro pessoas", "codigo": "120 / 4;"}
+{"prompt": "Guarde o valor da média de duas notas", "codigo": "var media = (7.5 + 8.0) / 2;"}
+{"prompt": "Calcule o quadrado de um número", "codigo": "5 * 5;"}
+{"prompt": "Armazene o cubo de um número", "codigo": "var cubo = 3 * 3 * 3;"}
+{"prompt": "Some três números inteiros", "codigo": "10 + 20 + 30;"}
+{"prompt": "Armazene a soma de três preços", "codigo": "var compra = 15.9 + 22.3 + 10.5;"}
+{"prompt": "Subtraia um desconto do valor da compra", "codigo": "250 - 20;"}
+{"prompt": "Guarde o resultado de 100 dividido por 8", "codigo": "var divisao = 100 / 8;"}
+{"prompt": "Multiplique três fatores", "codigo": "2 * 3 * 4;"}
+{"prompt": "Armazene o produto de dois números decimais", "codigo": "var produto = 2.5 * 1.2;"}
+{"prompt": "Divida o peso total por número de caixas", "codigo": "80 / 10;"}
+{"prompt": "Guarde a soma de duas distâncias", "codigo": "var distancia = 12.4 + 8.6;"}
+{"prompt": "Subtraia o tempo previsto do tempo real", "codigo": "95 - 87;"}
+{"prompt": "Armazene a área de um retângulo", "codigo": "var area = 12 * 8;"}
+{"prompt": "Calcule o resto da divisão de 10 por 3", "codigo": "10 % 3;"}
+{"prompt": "Armazene o resto da divisão de 25 por 4", "codigo": "var resto = 25 % 4;"}
+{"prompt": "Verifique se um número é par com o operador de resto", "codigo": "10 % 2 == 0;"}
+{"prompt": "Guarde o resultado da potência de 2 elevado a 5", "codigo": "var potencia = 2 * 2 * 2 * 2 * 2;"}
+{"prompt": "Calcule a média de três notas", "codigo": "(7 + 8 + 9) / 3;"}
+{"prompt": "Armazene a expressão da fórmula da área de um triângulo", "codigo": "var areaTriangulo = (10 * 8) / 2;"}
+{"prompt": "Calcule o perímetro de um quadrado de lado 6", "codigo": "4 * 6;"}
+{"prompt": "Guarde o valor da expressão 15 + 3 * 2", "codigo": "var valor = 15 + 3 * 2;"}
+{"prompt": "Resolva a expressão (20 - 5) * 2", "codigo": "(20 - 5) * 2;"}
+{"prompt": "Armazene o cálculo de velocidade média", "codigo": "var velocidade = 120 / 2;"}
+{"prompt": "Some o dobro de um número com 5", "codigo": "(2 * 7) + 5;"}
+{"prompt": "Armazene o triplo de 4 mais 10", "codigo": "var resultado = (3 * 4) + 10;"}
+{"prompt": "Calcule o desconto de 10% em um preço de 200", "codigo": "200 * 0.9;"}
+{"prompt": "Guarde o preço com acréscimo de 15%", "codigo": "var novoPreco = 350 * 1.15;"}
+{"prompt": "Resolva a expressão 100 / (5 + 5)", "codigo": "100 / (5 + 5);"}
+{"prompt": "Armazene o quadrado da soma de 3 e 4", "codigo": "var resultado = (3 + 4) * (3 + 4);"}
+{"prompt": "Calcule a média ponderada com pesos 2 e 3", "codigo": "((8 * 2) + (7 * 3)) / (2 + 3);"}
+{"prompt": "Guarde a área de um círculo de raio 5 (aproximação π=3.14)", "codigo": "var area = 3.14 * 5 * 5;"}
+{"prompt": "Calcule o valor absoluto de uma diferença", "codigo": "20 - 35;"}
+{"prompt": "Armazene a expressão de lucro (receita - custo)", "codigo": "var lucro = 5000 - 3200;"}
+{"prompt": "Verifique se a idade é maior que 18", "codigo": "20 > 18;"}
+{"prompt": "Armazene se a nota é suficiente para aprovação", "codigo": "var aprovado = 7.5 >= 6;"}
+{"prompt": "Teste se dois números são iguais", "codigo": "10 == 10;"}
+{"prompt": "Guarde o resultado da comparação de duas senhas", "codigo": "var igual = \"123\" == \"123\";"}
+{"prompt": "Verifique se um valor é diferente de zero", "codigo": "valor != 0;"}
+{"prompt": "Armazene se a quantidade em estoque é menor que 5", "codigo": "var baixoEstoque = 3 < 5;"}
+{"prompt": "Compare se 100 é maior ou igual a 200", "codigo": "100 >= 200;"}
+{"prompt": "Teste se o nome digitado é diferente de 'admin'", "codigo": "\"user\" != \"admin\";"}
+{"prompt": "Armazene o resultado de 8 < 12", "codigo": "var comparacao = 8 < 12;"}
+{"prompt": "Verifique se um número é positivo", "codigo": "5 > 0;"}
+{"prompt": "Guarde se duas variáveis são diferentes", "codigo": "var diferente = 10 != 20;"}
+{"prompt": "Compare se duas strings são iguais", "codigo": "\"sol\" == \"lua\";"}
+{"prompt": "Verifique se um número está acima da média", "codigo": "nota > 7;"}
+{"prompt": "Guarde se o salário é maior que o teto", "codigo": "var acima = 5500 > 5000;"}
+{"prompt": "Verifique se a idade é menor ou igual a 12", "codigo": "idade <= 12;"}
+{"prompt": "Armazene o resultado da verificação de saldo suficiente", "codigo": "var podePagar = saldo >= preco;"}
+{"prompt": "Compare se 15 é menor que 8", "codigo": "15 < 8;"}
+{"prompt": "Teste se a letra é 'A'", "codigo": "letra == \"A\";"}
+{"prompt": "Armazene se um produto está esgotado", "codigo": "var esgotado = quantidade == 0;"}
+{"prompt": "Verifique se a senha inserida é incorreta", "codigo": "senha != \"1234\";"}
+{"prompt": "Verifique se a idade está entre 18 e 65", "codigo": "idade >= 18 e idade <= 65;"}
+{"prompt": "Armazene se o aluno passou em todas as matérias", "codigo": "var aprovado = nota1 >= 6 e nota2 >= 6;"}
+{"prompt": "Verifique se a pessoa tem desconto por idade ou estudante", "codigo": "idade < 12 ou estudante == verdadeiro;"}
+{"prompt": "Guarde se o usuário pode acessar o sistema", "codigo": "var acesso = logado == verdadeiro e senhaCorreta == verdadeiro;"}
+{"prompt": "Verifique se um número é positivo e par", "codigo": "numero > 0 e numero % 2 == 0;"}
+{"prompt": "Armazene se a compra tem frete grátis", "codigo": "var freteGratis = valor >= 200 ou cupom == verdadeiro;"}
+{"prompt": "Verifique se a temperatura está fora da faixa segura", "codigo": "temperatura < 0 ou temperatura > 100;"}
+{"prompt": "Guarde se uma pessoa é maior de idade e brasileira", "codigo": "var elegivel = idade >= 18 e nacionalidade == \"Brasileira\";"}
+{"prompt": "Verifique se o login está correto e a conta não está bloqueada", "codigo": "usuario == \"admin\" e bloqueado == falso;"}
+{"prompt": "Armazene se a nota é suficiente ou tem direito a recuperação", "codigo": "var passou = nota >= 6 ou recuperacao == verdadeiro;"}
+{"prompt": "Verifique se a porta está aberta ou a janela está quebrada", "codigo": "portaAberta == verdadeiro ou janelaQuebrada == verdadeiro;"}
+{"prompt": "Guarde se o sistema está ativo e em manutenção", "codigo": "var estado = ativo == verdadeiro e manutencao == verdadeiro;"}
+{"prompt": "Verifique se o saldo é maior que zero e conta ativa", "codigo": "saldo > 0 e ativa == verdadeiro;"}
+{"prompt": "Armazene se o produto é barato e de boa qualidade", "codigo": "var bomNegocio = preco < 100 e qualidade == \"Alta\";"}
+{"prompt": "Verifique se uma letra é vogal", "codigo": "letra == \"A\" ou letra == \"E\" ou letra == \"I\" ou letra == \"O\" ou letra == \"U\";"}
+{"prompt": "Guarde se o aluno está aprovado com nota alta", "codigo": "var destaque = media >= 9 e frequencia >= 75;"}
+{"prompt": "Verifique se o cliente tem desconto especial", "codigo": "vip == verdadeiro e compras > 10;"}
+{"prompt": "Armazene se a idade não permite dirigir", "codigo": "var naoPode = idade < 18 ou habilitacao == falso;"}
+{"prompt": "Verifique se o número está entre 1 e 10", "codigo": "numero >= 1 e numero <= 10;"}
+{"prompt": "Guarde se o login falhou", "codigo": "var falha = usuario != \"admin\" ou senha != \"123\";"}
+{"prompt": "Calcule a média de quatro notas e verifique se é maior que 7", "codigo": "((nota1 + nota2 + nota3 + nota4) / 4) > 7;"}
+{"prompt": "Armazene se a soma de dois números é par", "codigo": "var par = (num1 + num2) % 2 == 0;"}
+{"prompt": "Verifique se a idade é maior que 18 e menor que 60", "codigo": "idade > 18 e idade < 60;"}
+{"prompt": "Guarde o resultado da expressão (salario - descontos) > 2000", "codigo": "var bomSalario = (salario - descontos) > 2000;"}
+{"prompt": "Verifique se o tempo de viagem dividido pela distância é menor que 2", "codigo": "(tempo / distancia) < 2;"}
+{"prompt": "Armazene se o peso dividido pela altura ao quadrado é maior que 25", "codigo": "var sobrepeso = (peso / (altura * altura)) > 25;"}
+{"prompt": "Verifique se a soma de três ângulos forma um triângulo", "codigo": "(a + b + c) == 180;"}
+{"prompt": "Guarde o resultado da expressão lucro > 0 e vendas > 100", "codigo": "var sucesso = lucro > 0 e vendas > 100;"}
+{"prompt": "Verifique se o valor da compra com desconto é menor que 100", "codigo": "(valor * 0.9) < 100;"}
+{"prompt": "Armazene se a soma dos pares é maior que a soma dos ímpares", "codigo": "var maior = (2 + 4 + 6) > (1 + 3 + 5);"}
+{"prompt": "Verifique se a nota é suficiente e não houve faltas", "codigo": "nota >= 6 e faltas == 0;"}
+{"prompt": "Guarde o resultado de (x * y) > (a + b)", "codigo": "var comparacao = (x * y) > (a + b);"}
+{"prompt": "Verifique se o preço do produto com imposto é menor que o limite", "codigo": "(preco * 1.1) < limite;"}
+{"prompt": "Armazene se a quantidade vendida vezes preço unitário é maior que 1000", "codigo": "var meta = (quantidade * preco) > 1000;"}
+{"prompt": "Verifique se a senha tem pelo menos 6 caracteres", "codigo": "tamanho(senha) >= 6;"}
+{"prompt": "Guarde se a palavra é igual a outra em letras maiúsculas", "codigo": "var igual = texto == textoMaiusculo;"}
+{"prompt": "Verifique se a soma de dois quadrados é igual ao quadrado da hipotenusa", "codigo": "(a*a + b*b) == (c*c);"}
+{"prompt": "Armazene o resultado da comparação (idade + anosServico) >= 30", "codigo": "var aposentadoria = (idade + anosServico) >= 30;"}
+{"prompt": "Verifique se um número é múltiplo de outro", "codigo": "a % b == 0;"}
+{"prompt": "Guarde se o valor líquido é maior que o valor bruto", "codigo": "var erro = (liquido > bruto);"}
+{"prompt": "Mostrar uma saudação simples", "codigo": "escreva('Olá, mundo!');"}
+{"prompt": "Exibir o nome de uma cidade", "codigo": "escreva('São Paulo');"}
+{"prompt": "Somar dois números e exibir o resultado", "codigo": "escreva(7 + 3);"}
+{"prompt": "Concatenar duas palavras e exibir", "codigo": "escreva('Bom' + 'dia');"}
+{"prompt": "Exibir o resultado de uma subtração", "codigo": "escreva(20 - 5);"}
+{"prompt": "Juntar duas partes de um nome", "codigo": "escreva('Maria' + ' Silva');"}
+{"prompt": "Exibir o resultado de uma multiplicação", "codigo": "escreva(6 * 7);"}
+{"prompt": "Exibir o resultado de uma divisão", "codigo": "escreva(100 / 4);"}
+{"prompt": "Concatenar duas saudações", "codigo": "escreva('Oi' + ' amigo');"}
+{"prompt": "Somar números grandes", "codigo": "escreva(1000 + 2500);"}
+{"prompt": "Exibir uma mensagem de alerta", "codigo": "escreva('Atenção! Sistema fora do ar');"}
+{"prompt": "Concatenar duas frases curtas", "codigo": "escreva('Como vai?' + ' Tudo bem?');"}
+{"prompt": "Exibir a soma de dois valores monetários", "codigo": "escreva(50 + 75);"}
+{"prompt": "Exibir uma despedida", "codigo": "escreva('Até' + ' logo');"}
+{"prompt": "Exibir a diferença entre dois números", "codigo": "escreva(90 - 33);"}
+{"prompt": "Exibir uma multiplicação de valores inteiros", "codigo": "escreva(12 * 12);"}
+{"prompt": "Concatenar nome e sobrenome", "codigo": "escreva('João' + ' Souza');"}
+{"prompt": "Exibir o resultado de uma divisão exata", "codigo": "escreva(144 / 12);"}
+{"prompt": "Somar dois números decimais", "codigo": "escreva(3.5 + 4.5);"}
+{"prompt": "Concatenar duas partes de uma frase", "codigo": "escreva('Boa' + ' tarde');"}
+{"prompt": "Exibir resultado de uma subtração decimal", "codigo": "escreva(10.5 - 2.3);"}
+{"prompt": "Multiplicar dois números decimais", "codigo": "escreva(1.5 * 4.0);"}
+{"prompt": "Exibir o resultado de uma divisão decimal", "codigo": "escreva(7.5 / 2.5);"}
+{"prompt": "Concatenar duas strings de aviso", "codigo": "escreva('Erro:' + ' Arquivo não encontrado');"}
+{"prompt": "Exibir soma de dois números relacionados a idade", "codigo": "escreva(25 + 5);"}
+{"prompt": "Concatenar partes de endereço", "codigo": "escreva('Rua A' + ' Nº 10');"}
+{"prompt": "Exibir subtração de valores de estoque", "codigo": "escreva(100 - 47);"}
+{"prompt": "Exibir resultado de multiplicação de preço e quantidade", "codigo": "escreva(15 * 3);"}
+{"prompt": "Concatenar nome de curso", "codigo": "escreva('Ciência' + ' da Computação');"}
+{"prompt": "Exibir resultado de divisão de quilômetros", "codigo": "escreva(300 / 3);"}
+{"prompt": "Somar números em contexto financeiro", "codigo": "escreva(200 + 150);"}
+{"prompt": "Concatenar duas mensagens informativas", "codigo": "escreva('Processando' + ' dados...');"}
+{"prompt": "Exibir diferença entre anos", "codigo": "escreva(2025 - 1990);"}
+{"prompt": "Multiplicar valores de área", "codigo": "escreva(20 * 30);"}
+{"prompt": "Concatenar duas palavras de elogio", "codigo": "escreva('Muito' + ' bom');"}
+{"prompt": "Dividir um valor total em parcelas", "codigo": "escreva(1200 / 6);"}
+{"prompt": "Exibir resultado de soma decimal", "codigo": "escreva(2.75 + 1.25);"}
+{"prompt": "Concatenar saudação e nome", "codigo": "escreva('Olá' + ' Pedro');"}
+{"prompt": "Exibir subtração em contexto de saldo", "codigo": "escreva(500 - 125);"}
+{"prompt": "Exibir resultado de multiplicação de horas e minutos", "codigo": "escreva(2 * 60);"}
+{"prompt": "Concatenar cidade e estado", "codigo": "escreva('Recife' + ' PE');"}
+{"prompt": "Exibir resultado de divisão de distância", "codigo": "escreva(150 / 2);"}
+{"prompt": "Somar dois valores de notas escolares", "codigo": "escreva(8.5 + 7.0);"}
+{"prompt": "Concatenar aviso de manutenção", "codigo": "escreva('Sistema' + ' em manutenção');"}
+{"prompt": "Exibir subtração em contexto de desconto", "codigo": "escreva(80 - 15);"}
+{"prompt": "Exibir multiplicação de largura e altura", "codigo": "escreva(5 * 9);"}
+{"prompt": "Concatenar título e subtítulo", "codigo": "escreva('Capítulo 1:' + ' Introdução');"}
+{"prompt": "Exibir divisão em contexto de receita", "codigo": "escreva(500 / 4);"}
+{"prompt": "Somar valores em contexto de compras", "codigo": "escreva(120 + 230);"}
+{"prompt": "Concatenar duas frases de incentivo", "codigo": "escreva('Você consegue!' + ' Não desista!');"}
+{"prompt": "Exibir diferença entre temperaturas", "codigo": "escreva(35 - 22);"}
+{"prompt": "Multiplicar valor unitário por quantidade", "codigo": "escreva(9.99 * 4);"}
+{"prompt": "Concatenar marca e modelo", "codigo": "escreva('Toyota' + ' Corolla');"}
+{"prompt": "Dividir horas em turnos", "codigo": "escreva(24 / 3);"}
+{"prompt": "Somar valores em contexto de viagem", "codigo": "escreva(450 + 320);"}
+{"prompt": "Concatenar duas expressões de alegria", "codigo": "escreva('Que' + ' legal!');"}
+{"prompt": "Exibir subtração em contexto de tempo restante", "codigo": "escreva(60 - 15);"}
+{"prompt": "Exibir multiplicação de pontos em jogo", "codigo": "escreva(25 * 4);"}
+{"prompt": "Concatenar país e capital", "codigo": "escreva('Brasil' + ' Brasília');"}
+{"prompt": "Dividir valor em pagamentos", "codigo": "escreva(900 / 3);"}
+{"prompt": "Somar dois números relacionados a prêmios", "codigo": "escreva(1000 + 500);"}
+{"prompt": "Concatenar nome e apelido", "codigo": "escreva('Carlos' + ' Carlinhos');"}
+{"prompt": "Exibir subtração de dois preços", "codigo": "escreva(250 - 175);"}
+{"prompt": "Exibir multiplicação de largura e comprimento", "codigo": "escreva(8 * 12);"}
+{"prompt": "Concatenar duas frases curtas de saudação", "codigo": "escreva('Oi' + ' tudo bem?');"}
+{"prompt": "Exibir resultado de divisão inteira", "codigo": "escreva(100 / 5);"}
+{"prompt": "Somar valores de altura", "codigo": "escreva(1.70 + 0.15);"}
+{"prompt": "Concatenar nome de filme", "codigo": "escreva('Velozes' + ' e Furiosos');"}
+{"prompt": "Exibir diferença de pontuação", "codigo": "escreva(300 - 250);"}
+{"prompt": "Exibir multiplicação em contexto de receita culinária", "codigo": "escreva(3 * 200);"}
+{"prompt": "Concatenar frase com exclamação", "codigo": "escreva('Parabéns' + '!');"}
+{"prompt": "Exibir divisão de peso em pacotes", "codigo": "escreva(50 / 10);"}
+{"prompt": "Somar valores de tempo em minutos", "codigo": "escreva(45 + 30);"}
+{"prompt": "Concatenar duas partes de endereço eletrônico", "codigo": "escreva('usuario' + '@email.com');"}
+{"prompt": "Exibir subtração em contexto de combustível", "codigo": "escreva(60 - 25);"}
+{"prompt": "Exibir multiplicação em contexto de produção", "codigo": "escreva(100 * 2);"}
+{"prompt": "Concatenar duas partes de data", "codigo": "escreva('01/' + '01/2025');"}
+{"prompt": "Exibir divisão em contexto de grupos", "codigo": "escreva(40 / 8);"}
+{"prompt": "Somar dois valores de salários", "codigo": "escreva(1500 + 2500);"}
+{"prompt": "Concatenar frase motivacional", "codigo": "escreva('Nunca' + ' desista');"}
+{"prompt": "Exibir subtração em contexto de inventário", "codigo": "escreva(200 - 75);"}
+{"prompt": "Exibir multiplicação em contexto de área", "codigo": "escreva(10 * 15);"}
+{"prompt": "Concatenar marca e slogan", "codigo": "escreva('Nike' + ' Just Do It');"}
+{"prompt": "Exibir divisão em contexto de média", "codigo": "escreva(85 / 5);"}
+{"prompt": "Somar valores de duas contas", "codigo": "escreva(300 + 450);"}
+{"prompt": "Concatenar duas palavras tecnológicas", "codigo": "escreva('Inteligência' + ' Artificial');"}
+{"prompt": "Exibir subtração em contexto de diferenças de idade", "codigo": "escreva(45 - 18);"}
+{"prompt": "Exibir multiplicação de peças", "codigo": "escreva(7 * 8);"}
+{"prompt": "Concatenar título de música", "codigo": "escreva('Amor' + ' Perfeito');"}
+{"prompt": "Exibir divisão em contexto de horas de trabalho", "codigo": "escreva(40 / 8);"}
+{"prompt": "Somar valores de notas em concurso", "codigo": "escreva(9.0 + 8.5);"}
+{"prompt": "Concatenar duas expressões de saudação", "codigo": "escreva('Boa' + ' noite');"}
+{"prompt": "Exibir subtração em contexto de distância", "codigo": "escreva(120 - 45);"}
+{"prompt": "Exibir multiplicação de páginas por capítulos", "codigo": "escreva(20 * 10);"}
+{"prompt": "Concatenar duas partes de número de telefone", "codigo": "escreva('11' + '91234-5678');"}
+{"prompt": "Exibir divisão em contexto de lotes", "codigo": "escreva(500 / 25);"}
+{"prompt": "crie uma condição que verifique se a variável x é maior que vinte e incremente a variável 'contador' em um", "codigo": "se(x>20){\n  contador = contador + 1;\n}"}
+{"prompt": "crie uma condição que verifique se a variável idade é menor que 18 e atribua o texto 'menor de idade' para a variável 'status'", "codigo": "se(idade<18){\n  status = \"menor de idade\";\n}"}
+{"prompt": "crie uma condição que verifique se a variável saldo é igual a zero e imprima a mensagem 'Conta zerada'", "codigo": "se(saldo==0){\n  escreva(\"Conta zerada\");\n}"}
+{"prompt": "crie uma condição que verifique se a variável temperatura é maior que 30 e defina a variável 'clima' como 'quente'", "codigo": "se(temperatura>30){\n  clima = \"quente\";\n}"}
+{"prompt": "crie uma condição que verifique se a variável numero é par e some 1 à variável 'pares'", "codigo": "se(numero%2==0){\n  pares = pares + 1;\n}"}
+{"prompt": "crie uma condição que verifique se a string 'casa' é igual a 'moradia' e defina a variável 'sinonimos' como verdadeira", "codigo": "se('casa'=='moradia'){\n  sinonimos = verdadeiro;\n}"}
+{"prompt": "crie uma condição que verifique se a string 'senha' é igual a '1234' e incremente a variável 'acessos'", "codigo": "se('senha'=='1234'){\n  acessos = acessos + 1;\n}"}
+{"prompt": "crie uma condição que verifique se a variável altura é maior ou igual a 1.75 e defina a variável 'aprovado' como verdadeira", "codigo": "se(altura>=1.75){\n  aprovado = verdadeiro;\n}"}
+{"prompt": "crie uma condição que verifique se o preço é menor que 100 e aplique um desconto de 10 na variável 'preco'", "codigo": "se(preco<100){\n  preco = preco - 10;\n}"}
+{"prompt": "crie uma condição que verifique se a variável estoque é maior que zero e decremente a variável 'estoque' em 1", "codigo": "se(estoque>0){\n  estoque = estoque - 1;\n}"}
+{"prompt": "crie uma condição que verifique se a variável nota é maior ou igual a 6 e atribua 'Aprovado' à variável 'situacao'", "codigo": "se(nota>=6){\n  situacao = \"Aprovado\";\n}"}
+{"prompt": "crie uma condição que verifique se a variável velocidade é menor que 60 e imprima 'Velocidade permitida'", "codigo": "se(velocidade<60){\n  escreva(\"Velocidade permitida\");\n}"}
+{"prompt": "crie uma condição que verifique se a variável idade é igual a 30 e some 1 à variável 'trintao'", "codigo": "se(idade==30){\n  trintao = trintao + 1;\n}"}
+{"prompt": "crie uma condição que verifique se a variável saldo é maior que 1000 e defina a variável 'cliente_vip' como verdadeira", "codigo": "se(saldo>1000){\n  cliente_vip = verdadeiro;\n}"}
+{"prompt": "crie uma condição que verifique se a variável distancia é menor que 10 e atribua 5 à variável 'custo_frete'", "codigo": "se(distancia<10){\n  custo_frete = 5;\n}"}
+{"prompt": "crie uma condição que verifique se a variável altura é menor que 2 e some 0.1 à variável 'altura'", "codigo": "se(altura<2){\n  altura = altura + 0.1;\n}"}
+{"prompt": "crie uma condição que verifique se a variável tempo é maior que 60 e incremente a variável 'atrasos'", "codigo": "se(tempo>60){\n  atrasos = atrasos + 1;\n}"}
+{"prompt": "crie uma condição que verifique se a variável numero é negativo e imprima 'Número inválido'", "codigo": "se(numero<0){\n  escreva(\"Número inválido\");\n}"}
+{"prompt": "crie uma condição que verifique se a variável estoque é igual a zero e defina a variável 'precisa_repor' como verdadeira", "codigo": "se(estoque==0){\n  precisa_repor = verdadeiro;\n}"}
+{"prompt": "crie uma condição que verifique se a variável idade é maior que 65 e atribua 'Aposentado' à variável 'status'", "codigo": "se(idade>65){\n  status = \"Aposentado\";\n}"}
+{"prompt": "crie uma condição que verifique se a variável saldo é menor que 0 e some 100 à variável 'multa'", "codigo": "se(saldo<0){\n  multa = multa + 100;\n}"}
+{"prompt": "crie uma condição que verifique se a variável numero é múltiplo de 5 e adicione 1 à variável 'multiplos_cinco'", "codigo": "se(numero%5==0){\n  multiplos_cinco = multiplos_cinco + 1;\n}"}
+{"prompt": "crie uma condição que verifique se a variável temperatura é menor que 0 e imprima 'Congelando!'", "codigo": "se(temperatura<0){\n  escreva(\"Congelando!\");\n}"}
+{"prompt": "crie uma condição que verifique se a variável nota é menor que 3 e atribua 'Reprovado' para 'situacao'", "codigo": "se(nota<3){\n  situacao = \"Reprovado\";\n}"}
+{"prompt": "crie uma condição que verifique se a variável velocidade é maior que 100 e some 1 à variável 'multas'", "codigo": "se(velocidade>100){\n  multas = multas + 1;\n}"}
+{"prompt": "crie uma condição que verifique se a string 'cidade' é igual a 'São Paulo' e incremente a variável 'paulistanos'", "codigo": "se('cidade'=='São Paulo'){\n  paulistanos = paulistanos + 1;\n}"}
+{"prompt": "crie uma condição que verifique se a variável idade é menor que 12 e defina 'categoria' como 'Infantil'", "codigo": "se(idade<12){\n  categoria = \"Infantil\";\n}"}
+{"prompt": "crie uma condição que verifique se a variável saldo é igual a 500 e aplique um bônus de 50", "codigo": "se(saldo==500){\n  saldo = saldo + 50;\n}"}
+{"prompt": "crie uma condição que verifique se a variável distancia é maior que 50 e adicione 20 ao 'custo_frete'", "codigo": "se(distancia>50){\n  custo_frete = custo_frete + 20;\n}"}
+{"prompt": "crie uma condição que verifique se a variável numero é impar e some 1 à variável 'impares'", "codigo": "se(numero%2!=0){\n  impares = impares + 1;\n}"}
+{"prompt": "crie uma condição que verifique se a variável altura é maior que 1.5 e imprima 'Altura suficiente'", "codigo": "se(altura>1.5){\n  escreva(\"Altura suficiente\");\n}"}
+{"prompt": "crie uma condição que verifique se a variável preco é maior que 200 e defina 'frete_gratis' como verdadeiro", "codigo": "se(preco>200){\n  frete_gratis = verdadeiro;\n}"}
+{"prompt": "crie uma condição que verifique se a variável tempo é menor que 30 e adicione 5 pontos à variável 'bonus'", "codigo": "se(tempo<30){\n  bonus = bonus + 5;\n}"}
+{"prompt": "crie uma condição que verifique se a variável saldo é maior que 2000 e mude a 'categoria_cliente' para 'Premium'", "codigo": "se(saldo>2000){\n  categoria_cliente = \"Premium\";\n}"}
+{"prompt": "crie uma condição que verifique se a variável numero é menor que 10 e multiplique 'numero' por 10", "codigo": "se(numero<10){\n  numero = numero * 10;\n}"}
+{"prompt": "crie uma condição que verifique se a variável idade é igual a 21 e imprima 'Maioridade plena alcançada'", "codigo": "se(idade==21){\n  escreva(\"Maioridade plena alcançada\");\n}"}
+{"prompt": "crie uma condição que verifique se a variável temperatura é maior que 40 e ative a variável 'alerta_calor'", "codigo": "se(temperatura>40){\n  alerta_calor = verdadeiro;\n}"}
+{"prompt": "crie uma condição que verifique se a variável nota é igual a 10 e atribua 'Parabéns!' à variável 'mensagem'", "codigo": "se(nota==10){\n  mensagem = \"Parabéns!\";\n}"}
+{"prompt": "crie uma condição que verifique se a variável velocidade é menor que 30 e mude a 'marcha' para 2", "codigo": "se(velocidade<30){\n  marcha = 2;\n}"}
+{"prompt": "crie uma condição que verifique se a variável distancia é igual a 100 e some 10 à variável 'pontos'", "codigo": "se(distancia==100){\n  pontos = pontos + 10;\n}"}
+{"prompt": "crie uma condição que verifique se a variável saldo é menor que 100 e envie um 'alerta de saldo baixo'", "codigo": "se(saldo<100){\n  escreva(\"Alerta de saldo baixo\");\n}"}
+{"prompt": "crie uma condição que verifique se a variável numero é maior que 50 e divida 'numero' por 2", "codigo": "se(numero>50){\n  numero = numero / 2;\n}"}
+{"prompt": "crie uma condição que verifique se a variável idade é menor que 5 e defina a 'entrada' como gratuita", "codigo": "se(idade<5){\n  entrada = 0;\n}"}
+{"prompt": "crie uma condição que verifique se a variável preco é menor que 10 e adicione 1 à variável 'itens_baratos'", "codigo": "se(preco<10){\n  itens_baratos = itens_baratos + 1;\n}"}
+{"prompt": "crie uma condição que verifique se a variável temperatura é menor que 10 e defina o 'aquecedor' como ligado", "codigo": "se(temperatura<10){\n  aquecedor = verdadeiro;\n}"}
+{"prompt": "crie uma condição que verifique se a variável saldo é maior que 10000 e chame a função 'ligar_gerente'", "codigo": "se(saldo>10000){\n  ligar_gerente();\n}"}
+{"prompt": "crie uma condição que verifique se a variável numero é igual a 7 e imprima 'Número da sorte!'", "codigo": "se(numero==7){\n  escreva(\"Número da sorte!\");\n}"}
+{"prompt": "crie uma condição que verifique se a variável idade é maior que 40 e adicione 1 ao contador 'acima_de_40'", "codigo": "se(idade>40){\n  acima_de_40 = acima_de_40 + 1;\n}"}
+{"prompt": "crie uma condição que verifique se a variável distancia é menor que 5 e defina a 'entrega' como 'rápida'", "codigo": "se(distancia<5){\n  entrega = \"rápida\";\n}"}
+{"prompt": "crie uma condição que verifique se a variável saldo é menor que 5000 e subtraia 50 de 'taxa'", "codigo": "se(saldo<5000){\n  taxa = taxa - 50;\n}"}
+{"prompt": "crie um bloco senão que escreva 'Menor de idade';", "codigo": "senão{\n  escreva('Menor de idade');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Produto esgotado';", "codigo": "senão{\n  escreva('Produto esgotado');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Acesso negado';", "codigo": "senão{\n  escreva('Acesso negado');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Idade insuficiente';", "codigo": "senão{\n  escreva('Idade insuficiente');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Número ímpar';", "codigo": "senão{\n  escreva('Número ímpar');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Senha incorreta';", "codigo": "senão{\n  escreva('Senha incorreta');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Saldo insuficiente';", "codigo": "senão{\n  escreva('Saldo insuficiente');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Temperatura baixa';", "codigo": "senão{\n  escreva('Temperatura baixa');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Dia útil';", "codigo": "senão{\n  escreva('Dia útil');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Vagas esgotadas';", "codigo": "senão{\n  escreva('Vagas esgotadas');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Aprovado não atingido';", "codigo": "senão{\n  escreva('Aprovado não atingido');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Cartão bloqueado';", "codigo": "senão{\n  escreva('Cartão bloqueado');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Fora do horário';", "codigo": "senão{\n  escreva('Fora do horário');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Número fora do intervalo';", "codigo": "senão{\n  escreva('Número fora do intervalo');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Email inválido';", "codigo": "senão{\n  escreva('Email inválido');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Login falhou';", "codigo": "senão{\n  escreva('Login falhou');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Arquivo não encontrado';", "codigo": "senão{\n  escreva('Arquivo não encontrado');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Usuário não autorizado';", "codigo": "senão{\n  escreva('Usuário não autorizado');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Documento rejeitado';", "codigo": "senão{\n  escreva('Documento rejeitado');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Saldo negativo';", "codigo": "senão{\n  escreva('Saldo negativo');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Entrega atrasada';", "codigo": "senão{\n  escreva('Entrega atrasada');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Reunião cancelada';", "codigo": "senão{\n  escreva('Reunião cancelada');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Curso não disponível';", "codigo": "senão{\n  escreva('Curso não disponível');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Pagamento não autorizado';", "codigo": "senão{\n  escreva('Pagamento não autorizado');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Condição não satisfeita';", "codigo": "senão{\n  escreva('Condição não satisfeita');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Limite excedido';", "codigo": "senão{\n  escreva('Limite excedido');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Operação inválida';", "codigo": "senão{\n  escreva('Operação inválida');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Login inválido';", "codigo": "senão{\n  escreva('Login inválido');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Chave incorreta';", "codigo": "senão{\n  escreva('Chave incorreta');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Saldo insuficiente para saque';", "codigo": "senão{\n  escreva('Saldo insuficiente para saque');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Usuário não encontrado';", "codigo": "senão{\n  escreva('Usuário não encontrado');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Processo não concluído';", "codigo": "senão{\n  escreva('Processo não concluído');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Produto não selecionado';", "codigo": "senão{\n  escreva('Produto não selecionado');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Operação cancelada';", "codigo": "senão{\n  escreva('Operação cancelada');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Erro de sistema';", "codigo": "senão{\n  escreva('Erro de sistema');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Pagamento pendente';", "codigo": "senão{\n  escreva('Pagamento pendente');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Não autorizado';", "codigo": "senão{\n  escreva('Não autorizado');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Falha no login';", "codigo": "senão{\n  escreva('Falha no login');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Documento inválido';", "codigo": "senão{\n  escreva('Documento inválido');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Condição falsa';", "codigo": "senão{\n  escreva('Condição falsa');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Número não permitido';", "codigo": "senão{\n  escreva('Número não permitido');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Tempo expirado';", "codigo": "senão{\n  escreva('Tempo expirado');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Transação não realizada';", "codigo": "senão{\n  escreva('Transação não realizada');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Evento não iniciado';", "codigo": "senão{\n  escreva('Evento não iniciado');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Acesso bloqueado';", "codigo": "senão{\n  escreva('Acesso bloqueado');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Sessão expirada';", "codigo": "senão{\n  escreva('Sessão expirada');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Serviço indisponível';", "codigo": "senão{\n  escreva('Serviço indisponível');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Falha na operação';", "codigo": "senão{\n  escreva('Falha na operação');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Item não encontrado';", "codigo": "senão{\n  escreva('Item não encontrado');\n}"}
+{"prompt": "crie um bloco senão que escreva 'Erro de autenticação';", "codigo": "senão{\n  escreva('Erro de autenticação');\n}"}

@@ -1,39 +1,5 @@
 const outputDiv = document.getElementById("output");
-const runButton = document.getElementById("runBtn");
 const demoSelector = document.getElementById("demoSelector");
-
-window.addEventListener('beforeunload', () => {
-  sessionStorage.clear(); // Limpa todos os itens armazenados no sessionStorage
-});
-
-function transcription(){
-  let chaveDinamica = Date.now();
-  //console.log(Date.now());
-  const texto = document.getElementById("outputText");
-  //createIndexedDB();
-  //saveSessionToIndexedDB(chaveDinamica, String(texto.textContent));
-  //let array = loadFromIndexedDB()
-  sessionStorage.setItem(chaveDinamica, String(texto.textContent));
-
-  let box = '';
-  let key = [];
-
-  for (let i=0; i < sessionStorage.length; i++){
-      key.push(sessionStorage.key(i));
-  }
-  //const index = key.indexOf('IsThisFirstTime_Log_From_LiveServer');
-  //key.splice(index, 1);
-  key = key.sort((a, b) => a - b);
-  for (let i=0; i < key.length; i++){
-      if(sessionStorage.getItem(key[i]) != 'true'){
-        box += sessionStorage.getItem(key[i]) + '\n';
-      }
-  }
-  //box.replace(/\n+/g, '\n');
-  //console.log(key);
-  //console.log(box);
-  editor.updateCode(box);
-}
 
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
@@ -69,9 +35,11 @@ const editor = new CodeFlask("#editor", {
 
 clearOutput();
 
+// Não está funcionando
 const demoKeys = Object.keys(demos);
 function loadDemo(name) {
-  editor.updateCode(demos[name]);
+  addCodeToBox(demos[name]);
+  //editor.updateCode(demos[name]);
 }
 
 demoKeys.forEach((demo, index) => {
@@ -95,19 +63,6 @@ if (queryCode !== undefined) {
   loadDemo(demoKeys[0]);
 }
 
-const runCode = function() {
-  const egua = new Egua.Egua();
-
-  let code = editor.getCode();
-
-  egua.runBlock(code);
-};
-
 demoSelector.addEventListener("change", function() {
   loadDemo(demoSelector.value);
-});
-
-runButton.addEventListener("click", function() {
-  clearOutput();
-  runCode();
 });

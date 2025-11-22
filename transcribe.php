@@ -1,13 +1,21 @@
 <?php
 
-$api_key = 'PUT YOUR API KEY HERE';
+// Carrega o autoloader do Composer
+require 'vendor/autoload.php';
+
+// Instancia a biblioteca apontando para a pasta onde está o .env
+// __DIR__ representa a pasta atual
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$api_key = $_ENV['OPENAI_API_KEY'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['audio'])) {
     $audio_file = $_FILES['audio']['tmp_name'];
 
     $ch = curl_init();
 
-    curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/audio/transcriptions');
+    curl_setopt($ch, CURLOPT_URL, $_ENV['OPENAI_CURL']);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
