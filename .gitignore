@@ -37,3 +37,7 @@ vendor/
 venv/
 __pycache__/
 # MANTÉM: requirements.txt
+
+# AI models
+models/
+*.gguf
