@@ -9,6 +9,10 @@ import google.generativeai as genai
 from google.generativeai.types import HarmCategory, HarmBlockThreshold
 from flask import Flask, request, Response
 from flask_cors import CORS
+from dotenv import load_dotenv
+
+# Carrega as variáveis do arquivo .env que está na raiz do projeto
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)

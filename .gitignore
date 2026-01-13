@@ -41,3 +41,6 @@ __pycache__/
 # AI models
 models/
 *.gguf
+
+# FAISS Indexes
+faiss_indexes/

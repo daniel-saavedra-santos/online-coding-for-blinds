@@ -5,6 +5,10 @@ import numpy as np
 from openai import OpenAI
 from flask import Flask, request, Response
 from flask_cors import CORS
+from dotenv import load_dotenv
+
+# Carrega as variáveis do arquivo .env que está na raiz do projeto
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
