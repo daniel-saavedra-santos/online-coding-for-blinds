@@ -446,40 +446,28 @@
   </div>
 
   <div id="toolbar">
-    <button id="print" onclick="escrever()">Escrever no console</button>
-    <button id="var" onclick="criarVariavel()">Criar variável</button>
-    <button id="op" onclick="operacao()">Operação</button>
-    <button id="cond" onclick="condicional()">Condicional</button>
-    <button id="runBtn">Executar</button>
-    <button class="recordButton" id="startButton" aria-label="Ativar microfone">🎤</button>
-    <button id="openConfig" class="config-btn" aria-label="Configurações">⚙️</button>
+    <button id="var" aria-label="Acesse aqui para criar uma única variável" onclick="criarVariavel()">Criar variável</button>
+    <button id="op" aria-label="Acesse aqui para realizar operações matemáticas ou lógicas e atribuí-las a uma variável" onclick="operacao()">Operação</button>
+    <button id="cond" aria-label="Acesse aqui para criar estruturas condicionais SE-ENTÃO" onclick="condicional()">Condicional</button>
+    <button id="print" aria-label="Acesse aqui para imprimir valores de variáveis ou textos na tela" onclick="escrever()">Imprimir valor na tela</button>
+    <button id="runBtn" aria-label="Acesse aqui para executar o seu código">Executar</button>
+    <button class="recordButton" id="startButton" aria-label="Acesse aqui para falar um comando personalizado para criação de código">🎤</button>
+    <button id="openConfig" class="config-btn" aria-label="Abrir as configurações do assistente">⚙️</button>
     <select id="demoSelector"></select>
 
     <hr style="height: 25px; border-left: 1px solid #ccc; margin: 0 10px;">
 
     <select id="seletor-voz" title="Selecionar Voz" style="max-width: 140px; padding: 5px;"></select>
 
-    <!--
-    <span style="white-space: nowrap; font-size: 14px;">
-        <label for="slider-velocidade" title="Velocidade de Leitura">Vel:</label>
-        <input type="range" id="slider-velocidade" min="0.5" max="2" value="1.1" step="0.1" style="width: 70px;">
-    </span>
-    
-    <span style="white-space: nowrap; font-size: 14px;">
-        <label for="slider-tom" title="Tom da Voz">Tom:</label>
-        <input type="range" id="slider-tom" min="0" max="2" value="1.0" step="0.1" style="width: 70px;">
-    </span>
-    -->
-
     <div class="audio-controls">
       <div class="control-item">
         <label for="slider-velocidade" class="control-label">Vel:</label>
-        <input type="range" id="slider-velocidade" class="styled-slider" min="0.5" max="2" value="1.1" step="0.1">
+        <input aria-label="Ajustar velocidade da voz" type="range" id="slider-velocidade" class="styled-slider" min="0.5" max="2" value="1.1" step="0.1">
       </div>
 
       <div class="control-item">
         <label for="slider-tom" class="control-label">Tom:</label>
-        <input type="range" id="slider-tom" class="styled-slider" min="0" max="2" value="1.0" step="0.1">
+        <input aria-label="Ajustar tom da voz" type="range" id="slider-tom" class="styled-slider" min="0" max="2" value="1.0" step="0.1">
       </div>
     </div>
 
@@ -561,10 +549,10 @@
     micBtn.addEventListener("click", () => {
       if (micBtn.textContent === "🎤") {
         micBtn.textContent = "🔇"; // muda para desligado
-        micBtn.setAttribute("aria-label", "Desativar microfone");
+        micBtn.setAttribute("aria-label", "Parar captura de áudio");
       } else {
         micBtn.textContent = "🎤"; // volta para ligado
-        micBtn.setAttribute("aria-label", "Ativar microfone");
+        micBtn.setAttribute("aria-label", "Acesse aqui para falar um comando personalizado para criação de código");
       }
     });
   </script>
@@ -633,7 +621,8 @@
         // ---------- INICIAR ----------
         isRecording = true;
         btnStart.textContent = "⏹️";
-        beep(660, 200); // bip de início
+        feedbackAudio("Captura de fala iniciada. Ao terminar, desabilite o microfone.")
+        //beep(660, 200); // bip de início
 
         if (engine === "web-speech-api") {
           recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
@@ -675,7 +664,8 @@
         // ---------- PARAR ----------
         isRecording = false;
         btnStart.textContent = "🎤";
-        beep(440, 200); // bip de parada
+        feedbackAudio("Microfone desabilitado com sucesso.")
+        //beep(440, 200); // bip de parada
 
         if (engine === "web-speech-api") {
           if (recognition) recognition.stop();

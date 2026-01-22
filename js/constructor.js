@@ -66,6 +66,7 @@ async function textoParaNumero(textoExtenso) {
 
   } catch (error) {
     console.error("Falha na comunicação com o servidor Python:", error);
+    feedbackAudio("Falha na comunicação com o servidor");
     return null;
   }
 }
@@ -203,6 +204,7 @@ async function gravarAudio(duration = 5000) {
     return stopped;
   } catch (err) {
     console.error("Erro ao gravar áudio:", err);
+    feedbackAudio("Erro ao gravar áudio");
     return null; // Retorna null se o usuário negar permissão ou ocorrer outro erro.
   }
 }
@@ -401,23 +403,36 @@ function corrigir(palavra) {
 // -----------------------------------------
 
 async function criarVariavel() {
-  const tipoVarRaw = await ouvirComTentativas("O que você deseja criar? Diga variável simples ou vetor.");
-  if (!tipoVarRaw) return null; // Sai se o usuário não responder
+  const tipoVarRaw = await ouvirComTentativas("Bem-vindo ao assistente para a criação de variáveis. O que você deseja criar? Diga SOMENTE UMA das seguintes opções: VARIÁVEL SIMPLES ou VETOR.");
+  if (!tipoVarRaw) {
+    feedbackAudio("Nenhuma resposta detectada. Ação 'criar variável' cancelada.");
+    return null;
+  } // Sai se o usuário não responder
 
   const tipoVar = corrigir(tipoVarRaw);
 
   // 1. Estrutura trocada para if / else if / else
   if (tipoVar.includes("simples") || tipoVar.includes("variável")) {
-    const subtipoRaw = await ouvirComTentativas("Qual o tipo da variável? Diga numérica, texto ou booleana.");
-    if (!subtipoRaw) return null;
+    const subtipoRaw = await ouvirComTentativas("Qual o tipo da variável? Diga SOMENTE UMA das seguintes opções: numérica OU texto OU booleana.");
+    if (!subtipoRaw) {
+      feedbackAudio("Nenhuma resposta detectada. Ação cancelada.");
+      return null;
+    }
     const subtipo = corrigir(subtipoRaw);
 
-    const nome = await ouvirComTentativas("Qual o nome da variável?");
-    if (!nome) return null;
+    const nome = await ouvirComTentativas("Diga agora qual o nome que você deseja dar para a variável?");
+    if (!nome) {
+      feedbackAudio("Nenhuma resposta detectada. Ação cancelada.");
+      return null;
+    }
 
-    const valor = await ouvirComTentativas("Qual o valor que será armazenado na variável?");
-    if (!valor) return null;
-
+    const valor = await ouvirComTentativas("Diga agora qual o valor que será armazenado na variável?");
+    if (!valor) {
+      feedbackAudio("Nenhuma resposta detectada. Ação cancelada.");
+      return null;
+    }
+    
+    feedbackAudio("O código foi criado com sucesso.");
     return enviarParaServidor({
       acao: "criarVariavel",
       tipo: subtipo,
@@ -426,22 +441,31 @@ async function criarVariavel() {
     });
 
   } else if (tipoVar.includes("vetor")) {
-    const subtipoRaw = await ouvirComTentativas("Qual o tipo do vetor? Diga numérico ou texto.");
-    if (!subtipoRaw) return null;
+    const subtipoRaw = await ouvirComTentativas("Qual o tipo do vetor? Diga SOMENTE UMA das seguintes opções: numérico OU texto.");
+    if (!subtipoRaw) {
+      feedbackAudio("Nenhuma resposta detectada. Ação cancelada.");
+      return null;
+    }
     const subtipo = corrigir(subtipoRaw);
 
-    const quantidadeRaw = await ouvirComTentativas("Quantas posições terá o vetor? Diga um número entre um e cinco:");
-    if (!quantidadeRaw) return null;
+    const quantidadeRaw = await ouvirComTentativas("Quantas posições terá o vetor? Diga SOMENTE UM número entre um e cinco:");
+    if (!quantidadeRaw) {
+      feedbackAudio("Nenhuma resposta detectada. Ação cancelada.");
+      return null;
+    }
 
     // 2. Variável 'quantidade' é definida e convertida para número
     const quantidade = await textoParaNumero(quantidadeRaw);
 
-    const nome = await ouvirComTentativas("Qual o nome do vetor?");
-    if (!nome) return null;
+    const nome = await ouvirComTentativas("Qual o nome que você deseja dar ao vetor?");
+    if (!nome) {
+      feedbackAudio("Nenhuma resposta detectada. Ação cancelada.");
+      return null;
+    }
 
     let valores = [];
     for (let i = 0; i < quantidade; i++) {
-      let v = await ouvirComTentativas(`Qual o valor da posição ${i + 1}?`);
+      let v = await ouvirComTentativas(`Agora, eu irei falar uma posição por vez. Qual o valor da posição ${i + 1}?`);
       if (!v) continue; // Pula se não houver resposta para esta posição
 
       // 3. Verifica o tipo do vetor antes de adicionar o valor
@@ -452,6 +476,7 @@ async function criarVariavel() {
         valores.push(v); // Adiciona como texto
       }
     }
+    feedbackAudio("O código foi criado com sucesso.");
     return enviarParaServidor({
       acao: "criarVariavel",
       tipo: "vetor de " + subtipo,
@@ -463,7 +488,7 @@ async function criarVariavel() {
   } else {
     // 5. Evita recursão. Apenas informa o usuário.
     //console.log("Opção não reconhecida. Por favor, tente novamente dizendo 'variável simples' ou 'vetor'.");
-    feedbackAudio("Opção não reconhecida. Por favor, tente novamente dizendo 'variável simples' ou 'vetor'.");
+    feedbackAudio("Opção não reconhecida. Por favor, tente novamente dizendo SOMENTE UMA das seguintes opções: variável OU vetor.");
     // Opcional: você poderia chamar a função novamente aqui, mas é bom ter um limite.
     // return criarVariavel(); 
     return null;
@@ -475,11 +500,11 @@ async function criarVariavel() {
 // =====================================================
 async function escrever() {
   // Passo 1: Pergunta inicial usando a função segura.
-  const tipoRaw = await ouvirComTentativas("Você deseja escrever o valor de uma variável ou um texto livre?");
+  const tipoRaw = await ouvirComTentativas("Bem-vindo ao assistente para impressão de valores na tela do computador. O que você deseja imprimir? Diga SOMENTE UMA das seguintes opções: variável OU texto livre?");
 
   // Passo 2: Verificação de segurança. Se o usuário não responder, a função é encerrada.
   if (!tipoRaw) {
-    feedbackAudio("Nenhuma resposta detectada. Ação 'escrever' cancelada.");
+    feedbackAudio("Nenhuma resposta detectada. Ação 'imprimir na tela' cancelada.");
     //console.log("Nenhuma resposta detectada. Ação 'escrever' cancelada.");
     return null;
   }
@@ -490,7 +515,7 @@ async function escrever() {
 
   // Passo 4: Estrutura lógica explícita, igual à de 'criarVariavel'.
   if (tipo.includes("variável")) {
-    const nome = await ouvirComTentativas("Qual o nome da variável que você quer escrever?");
+    const nome = await ouvirComTentativas("Diga o nome da variável que você quer escrever");
 
     // Verificação de segurança para o nome da variável.
     if (!nome) {
@@ -499,10 +524,11 @@ async function escrever() {
       return null;
     }
     // Retorna o objeto estruturado para a ação.
+    feedbackAudio("O código foi criado com sucesso.");
     return enviarParaServidor({ acao: "escrever", tipo: "variavel", conteudo: nome });
 
   } else if (tipo.includes("texto")) {
-    const texto = await ouvirComTentativas("Qual texto você deseja escrever?");
+    const texto = await ouvirComTentativas("Diga qual texto você deseja escrever");
 
     // Verificação de segurança para o conteúdo do texto.
     if (!texto) {
@@ -511,12 +537,13 @@ async function escrever() {
       return null;
     }
     // Retorna o objeto estruturado para a ação.
+    feedbackAudio("O código foi criado com sucesso.");
     return enviarParaServidor({ acao: "escrever", tipo: "texto", conteudo: texto });
 
   } else {
     // Passo 5: Resposta para opções não reconhecidas.
     //console.log(`Não entendi a opção "${tipoRaw}". Por favor, tente novamente dizendo "variável" ou "texto".`);
-    feedbackAudio(`Não entendi a opção "${tipoRaw}". Por favor, tente novamente dizendo "variável" ou "texto".`);
+    feedbackAudio(`Não entendi a opção "${tipoRaw}". Por favor, tente novamente dizendo SOMENTE UMA das seguintes opções: "variável" ou "texto livre".`);
     return null;
   }
 }
@@ -533,7 +560,7 @@ async function operacao() {
   const json = { acao: "operacao" };
 
   // 1. Pergunta sobre o tipo de operação com segurança
-  const tipoRaw = await ouvirComTentativas("A operação será matemática ou lógica?");
+  const tipoRaw = await ouvirComTentativas("Bem-vindo ao assistente para criação de operações. Qual o tipo da operação? Diga SOMENTE UMA das seguintes opções: matemática OU lógica?");
   if (!tipoRaw) {
     //console.log("Tipo de operação não informado. Ação cancelada.");
     feedbackAudio("Tipo de operação não informado. Ação cancelada.");
@@ -544,20 +571,20 @@ async function operacao() {
   // Validação do tipo de operação
   if (!tipo.includes("matemática") && !tipo.includes("lógica")) {
     //console.log(`Tipo "${tipoRaw}" não reconhecido. Tente "matemática" ou "lógica".`);
-    feedbackAudio(`Tipo "${tipoRaw}" não reconhecido. Tente "matemática" ou "lógica".`);
+    feedbackAudio(`Tipo "${tipoRaw}" não reconhecido. Tente "matemática" ou "lógica". Ação cancelada`);
     return null;
   }
   json.tipo = tipo;
 
   // 2. Coleta dos operandos e operador iniciais
-  const op1 = await ouvirComTentativas("Qual é o primeiro operando?");
+  const op1 = await ouvirComTentativas("Diga qual é o primeiro operando? Pode ser um número ou uma variável que você criou antes.");
   if (!op1) {
     //console.log("Primeiro operando não informado. Ação cancelada.");
     feedbackAudio("Primeiro operando não informado. Ação cancelada.");
     return null;
   }
 
-  const operadorFalado = await ouvirComTentativas("Qual é o operador?");
+  const operadorFalado = await ouvirComTentativas("Qual é o operador? Exemplos: Mais, Menos, Vezes, Dividido por, Maior que, Igual, Diferente");
   if (!operadorFalado) {
     //console.log("Operador não informado. Ação cancelada.");
     feedbackAudio("Operador não informado. Ação cancelada.");
@@ -570,7 +597,7 @@ async function operacao() {
     return null;
   }
 
-  const op2 = await ouvirComTentativas("Qual é o segundo operando?");
+  const op2 = await ouvirComTentativas("Qual é o segundo operando? Pode ser um número ou uma variável que você criou antes.");
   if (!op2) {
     //console.log("Segundo operando não informado. Ação cancelada.");
     feedbackAudio("Segundo operando não informado. Ação cancelada.");
@@ -626,6 +653,7 @@ async function operacao() {
   }
 
   json.expressao = expressao;
+  feedbackAudio("O código foi criado com sucesso.");
   return enviarParaServidor(json);
 }
 
@@ -674,7 +702,7 @@ async function coletarAcoes(nomeDoBloco) {
  */
 async function condicional() {
   // 1. Pergunta pela condição do "Se".
-  const condicao = await ouvirComTentativas("Qual condição será verificada pelo 'Se'?");
+  const condicao = await ouvirComTentativas("Diga qual condição será verificada pelo 'Se'?");
   if (!condicao) {
     feedbackAudio("Condição não informada. Ação cancelada.");
     //console.log("Condição não informada. Ação cancelada.");
@@ -711,7 +739,7 @@ async function condicional() {
 
   // 5. Retorna o objeto JSON completo.
   //console.log("Estrutura condicional criada com sucesso!");
-  feedbackAudio("Estrutura condicional criada com sucesso!");
+  feedbackAudio("O código foi criado com sucesso.");
   return enviarParaServidor(json);
 }
 

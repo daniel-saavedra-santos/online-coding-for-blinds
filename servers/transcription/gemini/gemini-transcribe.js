@@ -47,7 +47,7 @@ app.post('/transcribe', upload.single('audio'), async (req, res) => {
     };
 
     // Um prompt mais descritivo pode, às vezes, ajudar o modelo.
-    const prompt = "Por favor, transcreva o seguinte áudio com precisão. Se no áudio existirem valores numéricos, escreva-os por extenso.";
+    const prompt = "Por favor, transcreva o seguinte áudio com precisão. Se no áudio existirem valores numéricos, escreva-os por extenso. Retorne apenas o áudio transcrito, sem comentários, pontuações nem nada.";
 
     const result = await model.generateContent([prompt, audioPart]);
     const response = result.response;

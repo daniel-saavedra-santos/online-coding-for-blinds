@@ -96,6 +96,7 @@ function sendDataCallback(xhr) {
     if (xhr.status === 201 || xhr.status === 200) {
       //console.log("Resposta recebida:", xhr.responseText);
       addCodeToBox(xhr.responseText);
+      feedbackAudio("O código foi criado com sucesso. Verifique a linha de código criada através do editor de código.")
     } else {
       console.error("Erro na requisição:", xhr.status, xhr.responseText);
     }
@@ -120,32 +121,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuAudivelOpcoes = [
     {
       numero: 1,
-      nome: "Escrever no console",
-      descricao: "Inicia um assistente para inserir um comando de escrita no console, como 'escreva()', na posição atual do cursor.",
-      acao: () => escrever() // Supondo que a função 'escrever' existe
-    },
-    {
-      numero: 2,
       nome: "Criar Variável",
       descricao: "Guia você por voz para criar uma nova variável simples ou um vetor, definindo o nome e o valor inicial.",
       acao: () => criarVariavel() // Supondo que a função 'criarVariavel' existe
     },
     {
-      numero: 3,
-      nome: "Operações",
-      descricao: "Abre o sub-menu de operações matemáticas, como soma, subtração, multiplicação e divisão.",
+      numero: 2,
+      nome: "Criar Operações Matemáticas ou Lógicas",
+      descricao: "Abre o sub-menu de operações matemáticas, como soma, subtração, multiplicação e divisão, além das lógicas, como maior, menor, igual, diferente, entre outras.",
       acao: () => operacao() // Supondo que a função 'operacao' existe
     },
     {
-      numero: 4,
-      nome: "Condicional",
+      numero: 3,
+      nome: "Criar estrutura Condicional SE-ENTÃO",
       descricao: "Inicia um assistente para criar uma estrutura condicional 'se', definindo a condição e os blocos de código.",
       acao: () => condicional() // Supondo que a função 'condicional' existe
     },
     {
+      numero: 4,
+      nome: "Imprimir valor de variável ou mensagem de texto na tela",
+      descricao: "Inicia um assistente para imprimir um valor armazenado em uma variável ou apenas uma mensagem de texto na tela do computador.",
+      acao: () => escrever() // Supondo que a função 'escrever' existe
+    },
+    {
       numero: 5,
-      nome: "Executar",
-      descricao: "Limpa a saída anterior e executa o código que está atualmente no editor.",
+      nome: "Executar o Código",
+      descricao: "Executa o código que está atualmente no editor.",
       acao: () => {
         clearOutput();
         runCode();
@@ -153,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       numero: 6,
-      nome: "Ir para a linha",
+      nome: "Ir para uma linha específica de código",
       descricao: "Inicia o assistente de voz para que você possa dizer o número da linha para a qual deseja navegar.",
       acao: () => irParaLinhaPorVoz(flask, meuEditorTextArea)
     },
@@ -165,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       numero: 8,
-      nome: "Ler o console",
+      nome: "Ler novamente o resultado da execução do código",
       descricao: "Lê em voz alta as mensagens que estão na área de saída do console.",
       acao: () => lerConsole()
     }
@@ -491,7 +492,7 @@ document.addEventListener('DOMContentLoaded', () => {
   async function irParaLinhaPorVoz(flaskInstance, editorTextArea) {
     try {
       // 1. Usa sua função para perguntar a linha e esperar a resposta por voz.
-      const linhaRaw = await ouvirComTentativas("Para qual linha você quer ir?");
+      const linhaRaw = await ouvirComTentativas("Para qual linha você quer ir? Diga apenas um número.");
 
       // 2. Se o usuário não responder ou a escuta falhar, encerra a função.
       if (!linhaRaw) {
@@ -592,7 +593,7 @@ document.addEventListener('DOMContentLoaded', () => {
   * @param {HTMLTextAreaElement} editorTextArea O elemento textarea do editor.
   */
   function limparEditorComConfirmacao(flaskInstance, editorTextArea) {
-    const temCerteza = confirm("Você tem certeza que deseja limpar toda a área de código? Esta ação não pode ser desfeita.");
+    const temCerteza = confirm("Você tem certeza que deseja limpar toda a área de código? Esta ação não pode ser desfeita. Tecle ENTER para confirmar ou ESC para cancelar.");
 
     if (temCerteza) {
       flaskInstance.updateCode('');
@@ -640,7 +641,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 7. Libera a memória revogando a URL do objeto.
     URL.revokeObjectURL(url);
 
-    feedbackAudio("Código exportado com sucesso.");
+    feedbackAudio("Código exportado com sucesso. Tecle ENTER para salvar.");
   }
 
   // --- PASSO 4: CONFIGURAR OS ATALHOS DE TECLADO ---
@@ -658,7 +659,7 @@ document.addEventListener('DOMContentLoaded', () => {
         meuEditorTextArea.focus();
 
         // 3. Fornece um feedback de áudio para o usuário
-        feedbackAudio("Editor de código focado.");
+        feedbackAudio("O foco do teclado encontra-se agora na área de edição de código.");
       }
       // =======================================================
 
@@ -697,12 +698,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (event.key === 'F7') {
         event.preventDefault();
         // Chama a nova função principal.
+        feedbackAudio("Função ativada: Ir para uma linha de código por voz.");
         irParaLinhaPorVoz(flask, meuEditorTextArea);
       }
 
       if (event.ctrlKey && event.key.toLowerCase() === 'g') {
         event.preventDefault();
         // Chama a nova função principal.
+        feedbackAudio("Função ativada: Ir para uma linha de código através do teclado");
         irParaLinhaPorTeclado(flask, meuEditorTextArea);
       }
 
@@ -727,7 +730,7 @@ document.addEventListener('DOMContentLoaded', () => {
           .map(opt => `Opção ${opt.numero}: ${opt.nome}.`)
           .join(' ');
 
-        const promptInicial = `Bem-vindo ao menu audível. Diga o número da opção para executá-la ou diga "ajuda" seguido do número para saber mais. ${listaOpcoesPrompt}`;
+        const promptInicial = `Bem-vindo ao menu audível. Somente após o assistente falar todas as opções a seguir, você deve dizer APENAS o número da opção para executá-la OU, se estiver com dúvida sobre o que a opção faz, dizer APENAS "ajuda" seguido do número da opção para saber mais. Por exemplo, AJUDA "6" ou AJUDA "3". Você pode interromper a listagem com ESC e falar o comando. ${listaOpcoesPrompt}`;
 
         // 2. Ouve a resposta do usuário.
         const respostaRaw = await ouvirComTentativas(promptInicial);
@@ -792,6 +795,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (event.key === 'F8' || (event.shiftKey && event.key.toLowerCase() === 'r')) {
         // 1. Previne qualquer ação padrão do navegador para CTRL + Espaço
+        feedbackAudio("Função ativada: ler novamente a saída de execução do código");
         event.preventDefault();
         lerConsole();
       }
@@ -816,7 +820,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (event.key === 'F11' || (event.ctrlKey && event.key.toLowerCase() === 's')) {
         // MUITO IMPORTANTE: Impede o navegador de abrir o diálogo "Salvar Página Como..."
         event.preventDefault();
-
+        feedbackAudio("Função ativada: exportar código para salvar");
         // Chama a nossa nova função de exportação
         exportarCodigo(flask);
       }
@@ -834,9 +838,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (event.key === 'F2') {
         // Impede o navegador de executar a ação padrão...
         event.preventDefault();
-
         // Chama a nossa nova função de escrever variável/texto
-        escrever();
+        criarVariavel();
       }
 
       if (event.key === 'F3') {
@@ -844,7 +847,7 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
 
         // Chama a nossa nova função de criar variável
-        criarVariavel();
+        operacao();
       }
 
       if (event.key === 'F4') {
@@ -852,7 +855,7 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
 
         // Chama a nossa nova função de operações
-        operacao();
+        condicional();
       }
 
       if (event.key === 'F5') {
@@ -860,7 +863,7 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
 
         // Chama a nossa nova função de operações
-        condicional();
+        escrever();
       }
     });
   } else {
